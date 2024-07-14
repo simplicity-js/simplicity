@@ -1,4 +1,4 @@
-const DatabaseFactory = require("../framework/factory/database");
+const DatabaseFactory = require("@simplicityjs/framework/factory/database");
 const ServiceProvider = require("./service-provider");
 
 

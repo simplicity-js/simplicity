@@ -1,4 +1,5 @@
-const FrameworkServiceProvider = require("../framework/component/service-provider");
+const FrameworkServiceProvider = require(
+  "@simplicityjs/framework/component/service-provider");
 
 module.exports = class ServiceProvider extends FrameworkServiceProvider {
   #config;

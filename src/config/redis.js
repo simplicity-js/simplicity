@@ -1,4 +1,4 @@
-const env = require("../framework/env");
+const env = require("@simplicityjs/framework/env");
 
 module.exports = {
   url         : env("REDIS_URL"),

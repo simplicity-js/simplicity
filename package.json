@@ -4,7 +4,14 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cross-env NODE_ENV=test LOG_TO_CONSOLE=false mocha tests/\"{,/**/}*.spec.js\"",
+    "test:coverage": "nyc npm test",
+    "build": "npm install",
+    "serve": "node ./src/index.js",
+    "serve:watch": "nodemon ./src/index.js",
+    "commit": "git-cz",
+    "lint": "npx eslint src/**/*.js",
+    "lint:fix": "npm run lint -- --fix"
   },
   "repository": {
     "type": "git",
@@ -22,5 +29,33 @@
   "bugs": {
     "url": "https://github.com/simplicity-js/simplicity/issues"
   },
-  "homepage": "https://github.com/simplicity-js/simplicity#readme"
+  "homepage": "https://github.com/simplicity-js/simplicity#readme",
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-conventional-changelog"
+    },
+    "ghooks": {
+      "pre-commit": "npm run lint && npm run test:coverage"
+    }
+  },
+  "engines": {
+    "node": ">=18.18.2",
+    "npm": ">=9.8.1"
+  },
+  "dependencies": {
+    "@simplicityjs/framework": "file:../simplicity-framework",
+    "node-cache": "5.1.2"
+  },
+  "devDependencies": {
+    "chai": "5.1.1",
+    "commitizen": "4.3.0",
+    "cross-env": "7.0.3",
+    "cz-conventional-changelog": "3.3.0",
+    "eslint": "9.7.0",
+    "ghooks": "2.0.4",
+    "mocha": "10.6.0",
+    "nodemon": "3.1.4",
+    "nyc": "17.0.0",
+    "supertest": "7.0.0"
+  }
 }

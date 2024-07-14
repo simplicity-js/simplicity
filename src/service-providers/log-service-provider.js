@@ -1,4 +1,4 @@
-const LogFactory = require("../framework/factory/log");
+const LogFactory = require("@simplicityjs/framework/factory/log");
 const ServiceProvider = require("./service-provider");
 
 

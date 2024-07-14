@@ -1,5 +1,5 @@
-const Connections = require("../framework/connections");
-const CacheFactory = require("../framework/factory/cache");
+const Connections = require("@simplicityjs/framework/connections");
+const CacheFactory = require("@simplicityjs/framework/factory/cache");
 const ServiceProvider = require("./service-provider");
 
 

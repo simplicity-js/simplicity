@@ -1,7 +1,7 @@
 const path = require("node:path");
-const env = require("../framework/env");
-const is = require("../framework/lib/is");
-const string = require("../framework/lib/string");
+const env = require("@simplicityjs/framework/env");
+const is = require("@simplicityjs/framework/lib/is");
+const string = require("@simplicityjs/framework/lib/string");
 
 const SPLIT_REGEX = /[\s+,;|]+/;
 const APP_ROOT = string.convertBackSlashToForwardSlash(path.resolve(path.dirname(__dirname), ".."));

@@ -1,5 +1,5 @@
-const env = require("../framework/env");
-const is = require("../framework/lib/is");
+const env = require("@simplicityjs/framework/env");
+const is = require("@simplicityjs/framework/lib/is");
 
 module.exports = {
   name          : env("SESSION_NAME", "connect.sid"),

@@ -1,4 +1,4 @@
-const createObjectStore = require("../framework/component/registry");
+const createObjectStore = require("@simplicityjs/framework/component/registry");
 const ServiceProvider = require("./service-provider");
 
 

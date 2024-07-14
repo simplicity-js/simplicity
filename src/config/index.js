@@ -2,7 +2,7 @@ const fs = require("node:fs");
 const path = require("node:path");
 const {
   freezeObject, getObjectValue, setObjectValue
-} = require("../framework/lib/object");
+} = require("@simplicityjs/framework/lib/object");
 
 const config = createConfigObject(__dirname, ["config.spec.js", "index.js"]);
 let appConfig = config;
