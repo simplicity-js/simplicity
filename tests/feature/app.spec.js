@@ -1,7 +1,7 @@
 "use strict";
 
 const request = require("supertest");
-const { create: createApp } = require("@simplicityjs/framework");
+const { create: createApp } = require("@simplicityjs/framework/application");
 const { STATUS_CODES, STATUS_TEXTS } = require(
   "@simplicityjs/framework/component/http");
 const { chai } = require("../test-helper");
