@@ -7,8 +7,8 @@
     "test": "cross-env NODE_ENV=test LOG_TO_CONSOLE=false mocha tests/\"{,/**/}*.spec.js\"",
     "test:coverage": "nyc npm test",
     "build": "npm install",
-    "serve": "node ./src/index.js",
-    "serve:watch": "nodemon ./src/index.js",
+    "serve": "node ./bin/start-server",
+    "serve:watch": "nodemon ./bin/start-server",
     "commit": "git-cz",
     "lint": "npx eslint src/**/*.js",
     "lint:fix": "npm run lint -- --fix"

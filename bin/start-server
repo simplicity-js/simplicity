@@ -1,0 +1,10 @@
+#!/usr/bin/env node
+
+const exec = require("./exec");
+
+startServer();
+
+
+function startServer() {
+  exec(`node ./src/index.js`).catch(e => {});
+}
