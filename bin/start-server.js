@@ -6,5 +6,5 @@ startServer();
 
 
 function startServer() {
-  exec(`node ./src/index.js`).catch(e => {});
+  exec("node ./src/index.js").catch(() => {});
 }
