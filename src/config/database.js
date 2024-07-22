@@ -30,7 +30,6 @@ module.exports = {
       username : env("DB_USERNAME"),
       password : env("DB_PASSWORD"),
       dbName   : env("DB_DBNAME"),
-      orm      : env("DB_ORM", "sequelize"),
       exitOnConnectFail: true,
     },
 
