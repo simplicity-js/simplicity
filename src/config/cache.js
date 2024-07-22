@@ -44,7 +44,7 @@ module.exports = {
   stores: {
     file: {
       driver: "file",
-      storagePath: "storage/cache/data",
+      storagePath: env("CACHE_STORAGE_PATH", "storage/cache/data"),
     },
 
     memory: {

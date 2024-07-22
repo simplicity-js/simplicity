@@ -22,5 +22,4 @@ router.get("/", (req, res) => {
 
 router.get("/download", () => download("home.pug"));
 
-
 module.exports = router;

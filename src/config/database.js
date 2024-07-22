@@ -30,6 +30,7 @@ module.exports = {
       username : env("DB_USERNAME"),
       password : env("DB_PASSWORD"),
       dbName   : env("DB_DBNAME"),
+      orm      : env("DB_ORM", "sequelize"),
       exitOnConnectFail: true,
     },
 
@@ -42,5 +43,16 @@ module.exports = {
       dbName   : env("DB_DBNAME"),
       dbEngine : "mysql",
     },
+
+    sqlite: {
+      dbEngine    : "sqlite",
+      storagePath : env("DB_STORAGE_PATH", "storage/database/sqlite"),
+      dbName      : env("DB_DBNAME"),
+    },
+
+    /*
+     * You can define below other database connections
+     * as required by your application for mariadb, postgres, etc.
+     */
   },
 };
