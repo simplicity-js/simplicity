@@ -33,8 +33,7 @@ fs.readdirSync(__dirname)
     const sequelize = Connections.get(connectionName, connectionConfig);
     const model = sequelize.define(modelClass.table, modelClass.fields);
 
-    model.db = db;
-    db[model.name] = model;
+    db[modelClass.name] = model;
 
     //await model.sync();
   });

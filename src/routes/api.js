@@ -5,7 +5,6 @@ const serverStatus = require("../app/http/middleware/server-status");
 
 const router = Router.router();
 
-
 router.get("/", (req, res) => res.status(STATUS_CODES.HTTP_OK).json({
   success: true,
   message: STATUS_TEXTS[STATUS_CODES.HTTP_OK],
