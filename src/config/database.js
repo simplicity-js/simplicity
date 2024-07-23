@@ -1,3 +1,4 @@
+const path = require("node:path");
 const env = require("@simplicityjs/framework/env");
 
 module.exports = {
@@ -10,7 +11,7 @@ module.exports = {
    * This connection will be used unless another connection
    * is explicitly specified when you execute a query.
    */
-  default: env("DB_CONNECTION", "mongodb").toLowerCase(),
+  default: env("DB_CONNECTION", "sqlite").toLowerCase(),
 
   /*
    * ---------------------
@@ -45,12 +46,16 @@ module.exports = {
 
     sqlite: {
       dbEngine    : "sqlite",
-      storagePath : env("DB_STORAGE_PATH", "storage/database/sqlite"),
       dbName      : env("DB_DBNAME"),
+      storagePath : path.resolve(
+        path.dirname(path.dirname(__dirname)), 
+        "storage",
+        env("DB_STORAGE_PATH", ".sqlite")
+      ),
     },
 
     /*
-     * You can define below other database connections
+     * Define below other database connections
      * as required by your application for mariadb, postgres, etc.
      */
   },

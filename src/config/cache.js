@@ -1,3 +1,4 @@
+const path = require("node:path");
 const env = require("@simplicityjs/framework/env");
 const is = require("@simplicityjs/framework/lib/is");
 const NodeCache  = require( "node-cache" );
@@ -44,7 +45,11 @@ module.exports = {
   stores: {
     file: {
       driver: "file",
-      storagePath: env("CACHE_STORAGE_PATH", "storage/cache/data"),
+      storagePath: path.resolve(
+        path.dirname(path.dirname(__dirname)), 
+        "storage",
+        env("CACHE_STORAGE_PATH", ".cache")
+      ),
     },
 
     memory: {

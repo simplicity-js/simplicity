@@ -5,6 +5,9 @@
 # Dependency directory
 node_modules
 
+# Storage directory
+storage
+
 
 # misc
 .env
