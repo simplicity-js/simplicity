@@ -35,7 +35,7 @@ fs.readdirSync(__dirname)
 
     db[modelClass.name] = model;
 
-    //await model.sync();
+    model.sync();
   });
 
 // Ensure every model is available
