@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
    */
   res.locals.pageTitle = appName;
   res.locals.githubUrl = githubUrl;
-  res.locals.documentationUrl = `${githubUrl}/DOCUMENTATION.md`;
+  res.locals.documentationUrl = `${githubUrl}/blob/main/.github/DOCUMENTATION.md`;
   res.locals.pageTagline = "Feature-rich MVC Framework for Node.js";
 
   /*
