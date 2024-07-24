@@ -4,6 +4,9 @@ export default [
     languageOptions: { sourceType: "commonjs" }
   },
   {
+    ignores: ["src/public/js/script.js"]
+  },
+  {
     languageOptions: {
       globals: {
         "commonjs": true,

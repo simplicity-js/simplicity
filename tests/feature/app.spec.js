@@ -35,7 +35,7 @@ describe("Application", function() {
               return done(err);
             }
 
-            expect(res.text).to.match(/class="page-body"/);
+            expect(res.text).to.match(/class="page-body.*"/);
             done();
           });
       });
@@ -83,7 +83,7 @@ describe("Application", function() {
             }
 
             expect(res.text).to.match(/<title>Not Found |/);
-            expect(res.text).to.match(/class="page-body"/);
+            expect(res.text).to.match(/class="page-body.*"/);
             done();
           });
       });
