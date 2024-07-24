@@ -1,7 +1,7 @@
 {
   "name": "@simplicityjs/simplicity",
   "version": "1.0.0",
-  "description": "",
+  "description": "A Modern MVC Framework for Node.js ",
   "main": "src/index.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test LOG_TO_CONSOLE=false mocha tests/\"{,/**/}*.spec.js\"",
@@ -22,7 +22,8 @@
     "expressjs",
     "web-framework",
     "framework",
-    "mvc"
+    "mvc",
+    "node.js"
   ],
   "author": "simplymichael <simplymichaelorji@gmail.com> (https://github.com/simplymichael)",
   "license": "MIT",

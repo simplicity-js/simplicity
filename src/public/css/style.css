@@ -1696,6 +1696,11 @@ input#checkboxLabel:checked ~ .box span{
 .dark .dark\:bg-black{
   --tw-bg-opacity: 1;
   background-color: rgb(9 14 52 / var(--tw-bg-opacity));
+  /*background-color: rgb(1 1 122 / var(--tw-bg-opacity));
+  /*background-color: rgb(1 2 3 / var(--tw-bg-opacity));
+  /*background-color: rgb(140 20 252 / var(--tw-bg-opacity));
+  /*background-color: rgb(40 67 135 / var(--tw-bg-opacity));
+  /*background-color: rgb(43 44 170 / var(--tw-bg-opacity));*/
 }
 .dark .dark\:bg-white{
   --tw-bg-opacity: 1;
@@ -2344,5 +2349,3 @@ input#checkboxLabel:checked ~ .box span{
     padding-bottom: 200px;
   }
 }
-
-

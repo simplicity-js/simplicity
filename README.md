@@ -1,4 +1,5 @@
-# SimpliCity
+# Simplicity
+A Modern MVC Framework for Node.js
 
 
 ## Running
