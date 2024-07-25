@@ -6,7 +6,7 @@ section(id="about", class="pt-[120px]")
         div(class="w-full lg:w-1/2 px-4")
           div(class="mb-12 lg:mb-0 max-w-[570px] wow fadeInUp", data-wow-delay=".15s")
             h2(class="text-black dark:text-white font-bold text-3xl sm:text-4xl md:text-[45px] lg:text-4xl xl:text-[45px] leading-tight sm:leading-tight md:leading-tight lg:leading-tight xl:leading-tight mb-6")
-              | Write code with ease using familiar patterns.
+              | Code with ease using familiar patterns.
             p(class="font-medium text-body-color text-base sm:text-lg leading-relaxed sm:leading-relaxed mb-11")= appName
               |  brings the ease, familiarity, and simplicity of popular MVC pattern frameworks like Laravel to
               | the Node.js and Express ecosystems.
@@ -25,5 +25,26 @@ section(id="about", class="pt-[120px]")
             //- comment end
 
         div(class="w-full lg:w-1/2 px-4")
-          div(class="text-center lg:text-right wow fadeInUp", data-wow-delay=".2s")
-            img(src="/images/sample-code-dark.png", alt="sample code", class="max-w-full mx-auto lg:mr-0", style="border-radius:5px")
+          div(class="wow fadeInUp", data-wow-delay=".2s")
+            //- img(src="/images/sample-code-dark.png", alt="sample code", class="max-w-full mx-auto lg:mr-0", style="border-radius:5px")
+
+            pre
+              code(class="language-javascript")
+                | const Router = require("@simplicityjs/framework/component/router");
+                | const router = Router.router();
+                |
+                | router.group("/users", (router) => {
+                |   router.get("/{id}", async (req, res) => {
+                |     const user = await User.findByPk(req.params.id);
+                |
+                |     return user;
+                |   });
+                |
+                |   router.post("/", async (req, res) => {
+                |     const user = await User.create(req.body);
+                |
+                |     return user;
+                |   });
+                | });
+                |
+                | module.exports = router;

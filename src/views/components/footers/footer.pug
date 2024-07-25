@@ -1,0 +1,50 @@
+footer(class="page-footer relative z-10 bg-primary bg-opacity-5 pt-[100px] wow fadeInUp", data-wow-delay=".1s")
+  div.container
+    div(class="flex flex-wrap mx-[-16px]")
+
+      div(class="w-full md:w-1/2 lg:w-4/12 xl:w-5/12 px-4")
+        a(href="/", class="inline-block mb-8")
+          include /components/images/brand-logo
+        p(class="text-body-color text-base font-medium leading-relaxed mb-1")
+          A Modern MVC Framework for Node.js
+        p(class="text-body-color text-base font-medium leading-relaxed mb-9")
+          //| &copy; 2024
+        div(class="flex items-center")
+          a(href="javascript:void(0)", aria-label="social-link", class="text-[#CED3F6] hover:text-primary mr-6")
+            include /components/icons/facebook
+          a(href="javascript:void(0)", aria-label="social-link", class="text-[#CED3F6] hover:text-primary mr-6")
+            include /components/icons/twitter
+
+      div(class="w-full sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12 px-4")
+        div(class="mb-16")
+          h2(class="font-bold text-black dark:text-white text-xl mb-10")= appName
+          ul
+            li
+              a(href="javascript:void(0)" class="text-base font-medium inline-block text-body-color mb-4 hover:text-primary")
+                | Community
+            li
+              a(href="javascript:void(0)" class="text-base font-medium inline-block text-body-color mb-4 hover:text-primary")
+                | News
+
+      div(class="w-full sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12 px-4")
+        div(class="mb-16")
+          h2(class="font-bold text-black dark:text-white text-xl mb-10") Help
+          ul
+            li
+              a(href="javascript:void(0)" class="text-base font-medium inline-block text-body-color mb-4 hover:text-primary")
+                | Getting Started
+            li
+              a(href=`${documentationUrl}` class="text-base font-medium inline-block text-body-color mb-4 hover:text-primary")
+                | Documentation
+            li
+              a(href=`${githubUrl}` target="_blank" class="text-base font-medium inline-block text-body-color mb-4 hover:text-primary")
+                | Contribute
+
+      div(class="w-full md:w-1/2 lg:w-4/12 xl:w-3/12 px-4")
+
+  div(class="py-8 bg-primary bg-opacity-10")
+    div(class="container")
+      p(class="text-body-color dark:text-white text-base text-center")
+        | &copy; 2024 #{appName} &middot;
+        |  Theme by
+        a(href="https://graygrids.com/templates/startwind-tailwind-css-startup-template" target="_blank") UIdeck for You!
