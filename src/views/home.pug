@@ -2,20 +2,6 @@ extends layouts/layout
 
 block content
 
-  section(id="welcome", class="relative overflow-hidden z-10 pt-[120px] pb-[110px] md:pt-[150px] md:pb-[120px] xl:pt-[180px] xl:pb-[160px] 2xl:pt-[210px] 2xl:pb-[200px]")
-    div(class="container")
-      div(class="flex flex-wrap mx-[-16px]")
-        div(class="w-full px-4")
-          div(class="mx-auto max-w-[570px] text-center wow fadeInUp", data-wow-delay=".2s")
-            h1(class="page_title text-black dark:text-white font-bold text-3xl sm:text-4xl md:text-5xl leading-tight sm:leading-tight md:leading-tight mb-5"
-            ) A Modern MVC Framework
-            p#intro(class="font-medium text-lg md:text-xl leading-relaxed md:leading-relaxed text-body-color dark:text-white dark:opacity-90 mb-12"
-            ) Simplicity is a feature-rich Node.js web application framework for crafting elegant and high-performance websites and web applications.
-
-  section(id="features", class="bg-primary bg-opacity-[3%] pt-[120px] pb-[50px]")
-    div(class="container")
-      div(class="flex flex-wrap mx-[-16px]")
-        div(class="w-full px-4")
-          div(class="mx-auto max-w-[570px] text-center mb-[100px] wow fadeInUp", data-wow-delay=".1s")
-            h2(class="text-black dark:text-white font-bold text-3xl sm:text-4xl md:text-[45px] mb-4") Main Features
-            p(class="text-body-color text-base md:text-lg leading-relaxed md:leading-relaxed") There are many variations of passages of Lorem Ipsum available but the majority have suffered alteration in some form.
+  include /home/sections/welcome-section
+  include /home/sections/features-section
+  include /home/sections/sample-code-section

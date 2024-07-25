@@ -1696,6 +1696,7 @@ input#checkboxLabel:checked ~ .box span{
 .dark .dark\:bg-black{
   --tw-bg-opacity: 1;
   background-color: rgb(9 14 52 / var(--tw-bg-opacity));
+  /*background-color: rgb(109 52 246 / var(--tw-bg-opacity)); /* i.e #6d34f6 */
   /*background-color: rgb(1 1 122 / var(--tw-bg-opacity));
   /*background-color: rgb(1 2 3 / var(--tw-bg-opacity));
   /*background-color: rgb(140 20 252 / var(--tw-bg-opacity));
