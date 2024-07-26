@@ -14,10 +14,10 @@
       </a>
 - <a class="md-links" href="#configuration">Configuration</a>
     - <a class="md-links" href="#config-intro">Introduction</a>
-    - <a class="md-links" href="#enviromnent-configuration">
+    - <a class="md-links" href="#environment-configuration">
       Environment Configuration
       </a>
-    - <a class="md-links" href="#accessing-configurtion-values">
+    - <a class="md-links" href="#accessing-configuration-values">
       Accessing Configuration Values
       </a>
 - <a class="md-links" href="#routing">Routing</a>
