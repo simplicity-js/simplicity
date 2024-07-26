@@ -19,7 +19,7 @@
           Alternative: Creating a new project by cloning the starter project
           </a>
 - <a class="md-links" href="#configuration">Configuration</a>
-    - <a class="config-intro">Introduction</a>
+    - <a class="md-links" href="#config-intro">Introduction</a>
     - <a class="md-links" href="#enviromnent-configuration">
       Environment Configuration
       </a>
