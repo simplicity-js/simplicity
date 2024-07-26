@@ -1,6 +1,5 @@
 const path = require("node:path");
 const env = require("@simplicityjs/framework/env");
-const is = require("@simplicityjs/framework/lib/is");
 const NodeCache  = require( "node-cache" );
 
 module.exports = {
@@ -30,7 +29,7 @@ module.exports = {
   /*
    * Whether to compress the data prior to caching.
    */
-  compress: is.falsy(env("CACHE_COMPRESS_DATA")?.toLowerCase()) ? false : true,
+  compress: env("CACHE_COMPRESS_DATA"),
 
   /*
    * -------------
@@ -46,7 +45,7 @@ module.exports = {
     file: {
       driver: "file",
       storagePath: path.resolve(
-        path.dirname(path.dirname(__dirname)), 
+        path.dirname(path.dirname(__dirname)),
         "storage",
         env("CACHE_STORAGE_PATH", ".cache")
       ),

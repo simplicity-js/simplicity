@@ -5,7 +5,7 @@ const is = require("@simplicityjs/framework/lib/is");
 module.exports = {
   logExceptions : is.falsy(env("LOG_UNCAUGHT_EXCEPTIONS")) ? false : true,
   logRejections : is.falsy(env("LOG_PROMISE_REJECTIONS")) ? false : true,
-  logToConsole  : is.falsy(env("LOG_TO_CONSOLE")) ? false : true,
+  logToConsole  : env("LOG_TO_CONSOLE"),
   logToFile     : is.falsy(env("LOG_TO_FILE")) ? false : true,
 
   // Required if the `logToFile` option is true.

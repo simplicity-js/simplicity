@@ -1,6 +1,5 @@
 const path = require("node:path");
 const env = require("@simplicityjs/framework/env");
-const is = require("@simplicityjs/framework/lib/is");
 const string = require("@simplicityjs/framework/lib/string");
 
 const SPLIT_REGEX = /[\s+,;|]+/;
@@ -28,7 +27,7 @@ module.exports = {
   urlScheme   : scheme,
   environment : env("NODE_ENV", "production").toLowerCase(),
   apiVersion  : env("API_VERSION"),
-  debug       : is.falsy(env("DEBUG").toLowerCase()) ? false : true,
+  debug       : env("DEBUG"),
   timezone    : env("TIMEZONE", "UTC").toUpperCase(),
   rootDir     : APP_ROOT,
   srcDir      : APP_SRC_DIR,

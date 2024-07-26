@@ -1,6 +1,5 @@
 const path = require("node:path");
 const env = require("@simplicityjs/framework/env");
-const is = require("@simplicityjs/framework/lib/is");
 
 module.exports = {
   /*
@@ -42,14 +41,14 @@ module.exports = {
       username : env("DB_USERNAME"),
       password : env("DB_PASSWORD"),
       dbName   : env("DB_DBNAME"),
-      logging  : is.falsy(env("LOG_TO_CONSOLE").toLowerCase()) ? false : true,
+      logging  : env("LOG_TO_CONSOLE"),
       dbEngine : "mysql",
     },
 
     sqlite: {
       dbEngine    : "sqlite",
       dbName      : env("DB_DBNAME"),
-      logging     : is.falsy(env("LOG_TO_CONSOLE").toLowerCase()) ? false : true,
+      logging     : env("LOG_TO_CONSOLE"),
       storagePath : path.resolve(
         path.dirname(path.dirname(__dirname)),
         "storage",
