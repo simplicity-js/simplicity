@@ -31,13 +31,13 @@ footer(class="page-footer relative z-10 bg-primary bg-opacity-5 pt-[100px] wow f
           h2(class="font-bold text-black dark:text-white text-xl mb-10") Help
           ul
             li
-              a(href="javascript:void(0)" class="text-base font-medium inline-block text-body-color mb-4 hover:text-primary")
+              a(href=`${gettingStartedUrl}`, title="Getting Started", class="text-base font-medium inline-block text-body-color mb-4 hover:text-primary")
                 | Getting Started
             li
-              a(href=`${documentationUrl}` class="text-base font-medium inline-block text-body-color mb-4 hover:text-primary")
+              a(href=`${documentationUrl}`, title="Read the docs", class="text-base font-medium inline-block text-body-color mb-4 hover:text-primary")
                 | Documentation
             li
-              a(href=`${githubUrl}` target="_blank" class="text-base font-medium inline-block text-body-color mb-4 hover:text-primary")
+              a(href=`${githubUrl}`, target="_blank", title="Source Code" class="text-base font-medium inline-block text-body-color mb-4 hover:text-primary")
                 | Contribute
 
       div(class="w-full md:w-1/2 lg:w-4/12 xl:w-3/12 px-4")

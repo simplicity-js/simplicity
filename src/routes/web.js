@@ -7,13 +7,15 @@ router.get("/", (req, res) => {
   const config = req.app.resolve("config");
   const appName = config.get("app.name");
   const githubUrl = "https://github.com/simplicity-js/simplicity";
+  const documentationUrl = `${githubUrl}/blob/main/.github/DOCUMENTATION.md`;
 
   /*
    * Send view variables either via res.locals ...
    */
   res.locals.pageTitle = appName;
   res.locals.githubUrl = githubUrl;
-  res.locals.documentationUrl = `${githubUrl}/blob/main/.github/DOCUMENTATION.md`;
+  res.locals.documentationUrl = documentationUrl;
+  res.locals.gettingStartedUrl = `${documentationUrl}#getting-started`;
   res.locals.pageTagline = "Feature-rich MVC Framework for Node.js";
 
   /*
