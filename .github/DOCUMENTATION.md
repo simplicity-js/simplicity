@@ -171,7 +171,7 @@ All variables in your `.env` files are typically parsed as strings,
 so some reserved values have been created to allow you to return
 a wider range of types from the `env()` function:
 
-| `.env` Value | env() Value |
+| `.env` Value | `env()` Value |
 | ------------ | --------------- |
 | true         | (boolean) true  |
 | (true)       | (boolean) true  |
