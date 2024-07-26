@@ -3,19 +3,18 @@ extends layouts/layout
 block content
 
   if err && environment === "development"
-    section(class="relative z-10 pt-[120px]")
+    section(class="relative z-10 pt-[180px]")
       div.container
         div(class="flex flex-wrap mx-[-16px]")
           div(class="w-full px-4")
             p(class="font-medium text-body-color text-base sm:text-lg leading-relaxed sm:leading-relaxed mb-1")= err.stack
 
-  section(class="relative z-10 pt-[120px] pb-[120px]")
+  section(class="relative z-10 pt-[180px] pb-[120px]")
     div.container
       div(class="flex flex-wrap mx-[-16px]")
         div(class="w-full px-4")
           div(class="max-w-[530px] mx-auto text-center")
             div(class="mx-auto mb-9 text-center")
-            //-
               svg(class="w-full mx-auto text-center", height="210", viewBox="0 0 474 210", fill="none")
                 path(opacity="0.5", d="M25 163.051H101.211V191H133.308V163.051H153V136.111H133.308V32H91.2871L25 136.577V163.051ZM101.831 136.111H58.8025V134.869L100.591 68.6445H101.831V136.111Z", stroke="url(#paint0_linear_116:1137)", stroke-width="3")
                 path(opacity="0.5", d="M307 133.051H383.211V161H415.308V133.051H435V106.111H415.308V2H373.287L307 106.577V133.051ZM383.831 106.111H340.803V104.869L382.591 38.6445H383.831V106.111Z", stroke="url(#paint1_linear_116:1137)", stroke-width="3")
@@ -24,8 +23,8 @@ block content
                   circle(opacity="0.8", cx="227.5", cy="81.5", r="68.5", fill="#4A6CF7")
                 g(mask="url(#mask0_116:1137)")
                   circle(opacity="0.8", cx="227.5", cy="81.5", r="68.5", fill="url(#paint2_radial_116:1137)")
-                  g(opacity="0.8", filter="url(#filter0_f_116:1137)")
-                    circle(cx="233.543", cy="49.2645", r="28.2059", fill="white")
+                    g(opacity="0.8", filter="url(#filter0_f_116:1137)")
+                      circle(cx="233.543", cy="49.2645", r="28.2059", fill="white")
 
                 path(d="M0 182H83.5V209H150.5V178H169.5V148.5C169.5 148.5 194 165 229.5 165C265 165 294 134.5 294 134.5V152H306.5H361V178H435V152H474", stroke="white", stroke-opacity="0.08", stroke-width="2")
 
@@ -51,7 +50,6 @@ block content
             p(class="font-medium text-body-color text-base sm:text-lg leading-relaxed sm:leading-relaxed mb-10") The page you were looking for appears to have been moved, deleted or does not exist.
             a(href="/", class="text-base font-bold text-white bg-primary py-3 px-8 md:px-9 lg:px-8 xl:px-9 hover:bg-white hover:text-primary shadow-signUp rounded-md") Back to Homepage
 
-  //-
     div(class="hidden sm:block absolute left-0 bottom-0 z-[-1]")
       svg(width="406", height="286", viewBox="0 0 406 286", fill="none")
         g(opacity="0.5")
@@ -106,6 +104,7 @@ block content
           linearGradient(id="paint9_linear_116:1140", x1="409", y1="10", x2="331.729", y2="34.2741", gradientUnits="userSpaceOnUse")
             stop(stop-color="#4A6CF7")
             stop(offset="1", stop-color="#4A6CF7", stop-opacity="0")
+
 
     div(class="hidden sm:block absolute top-0 right-0 z-[-1]")
       svg(width="406", height="286", viewBox="0 0 406 286", fill="none")
