@@ -12,12 +12,6 @@
     - <a class="md-links" href="#creating-a-simplicity-project">
       Creating a Simplicity Project
       </a>
-        - <a class="md-links" href="#creating-project-with-cli">
-          Creating a new project using the Simplicity CLI (Recommended)
-          </a>
-        - <a class="md-links" href="#creating-project-by-cloning">
-          Alternative: Creating a new project by cloning the starter project
-          </a>
 - <a class="md-links" href="#configuration">Configuration</a>
     - <a class="md-links" href="#config-intro">Introduction</a>
     - <a class="md-links" href="#enviromnent-configuration">
