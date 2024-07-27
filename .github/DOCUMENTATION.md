@@ -234,7 +234,7 @@ config.set("app.timezone", "UTC");
 
 [//]: # (In Simplicity, a router's task is to define routes and their associated handlers.)
 [//]: # (A handler can be a controller instance or a closure.)
-[//]: # (A controller's (or handler's) task is to respond to incoming HTTP requests.)
+[//]: # (A controller's [or handler's] task is to respond to incoming HTTP requests.)
 
 Simplicity provides a simple and expressive API for defining routes and behavior.
 In its most basic form, a Simplicity route accepts a URI and a closure.
