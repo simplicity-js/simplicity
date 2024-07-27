@@ -21,6 +21,7 @@
       Accessing Configuration Values
       </a>
 - <a class="md-links" href="#routing">Routing</a>
+    - <a class="md-links" href="#routing-basics">Routing Basics</a>
     - <a class="md-links" href="#resource-controllers">Resource Controllers</a>
 
 </div>
@@ -225,6 +226,65 @@ config.set("app.timezone", "UTC");
 
 
 ## Routing
+
+### Routing Basics
+[//]: # (Simplicity makes a clear distinction between routes and controllers.)
+[//]: # (In fact, we don't need a controller class if we don't want to.)
+[//]: # (We can pass a closure to our route definitions.)
+
+[//]: # (In Simplicity, a router's task is to define routes and their associated handlers.)
+[//]: # (A handler can be a controller instance or a closure.)
+[//]: # (A controller's (or handler's) task is to respond to incoming HTTP requests.)
+
+Simplicity provides a simple and expressive API for defining routes and behavior.
+In its most basic form, a Simplicity route accepts a URI and a closure.
+
+```js
+const Router = require("@simplicityjs/framework/component/router");
+const router = Router.router();
+
+router.get("/", function sayHello(req, res) {
+  return res.send("Hello World!");
+});
+```
+
+#### The Default Route Files
+All Simplicity routes are defined in route files located in the `src/routes` directory.
+
+If you are building a full-stack application with Simplicity,
+you will begin by defining routes in your `src/routes/web.js` file.
+
+The `routes/web.js` file defines routes that are for your web interface.
+These routes automatically have a group of web-related middleware
+applied to them that provides features like session state and CSRF protection.
+
+To access these routes, simply enter the defined route's URL in your web browser.
+or example, you may access the following route by navigating to
+http://server-hostname/user in your browser:
+```js
+const UserController = require("../app/http/controllers/user-controller");
+
+router.get("/users", [UserController, "index"]);
+
+module.exports = router;
+```
+
+
+```js
+const Router = require("@simplicityjs/framework/component/router");
+const UserController = require("../app/http/controllers/user-controller");
+
+const router = Router.router();
+
+router.get("/users", [UserController, "findAll"]);
+router.post("/users", [UserController, "create"]);
+router.get("/users/{id}", "UserController.findAll");
+router.get("/user", "UserController::findAll");
+router.get("/me", { controller: UserController, method: "findAll" });
+
+module.exports = router;
+```
+
 ```js
 router.middleware((req, res, next) => {
   console.log("Middleware called");
