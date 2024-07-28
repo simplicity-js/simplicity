@@ -20,7 +20,7 @@ describe("Application", function() {
   });
 
   after(function(done) {
-    app.close(done);
+    app.stop(done);
   });
 
   describe("Routes", function webRouter() {

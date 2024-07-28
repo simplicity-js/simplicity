@@ -80,7 +80,7 @@ Once the project has been created, start the server in development mode using
 ```bash
 $ cd example-app
 
-$ npm run dev
+$ npm run start:dev
 ```
 
 <a id="creating-project-by-cloning" name="creating-project-by-cloning"></a>
@@ -91,36 +91,41 @@ $ git clone https://github.com/simplicity-js/simplicity.git example-app
 $ cd example-app
 $ npm install
 $ copy .env.example .env
-$ npm run dev
+$ npm run start:dev
 ```
 
 Once you have started the development server,
-your application will be accessible in your web browser at http://localhost:[PORT].
+your application will be accessible in your web browser at http://localhost:8800.
 
-where `[PORT]` is the port number specified inside the `.env` file
-that was created when the project was scaffolded.
 
-You can also specify a port in one of the following ways:
-  - on the command line by setting the `process.env.PORT` environment variable:
+##### Specifying the listen port
+By default, when a Simplicity project starts up, it listens on port number 8080.
+You can, however, specify a different port to listen on.
 
-    `process.env.PORT=<PORT>`
-    `npm run serve`.
-  - on the command line by passing the `port` option to the `serve` command like so:
-
-    `npm run serve -- --port <PORT>`
-
+There are several ways you can specify a different port to listen on:
+- setting the value of the `PORT` variable inside the `.env` file
+  that was created when the project was scaffolded.
+- setting the `PORT` environment variable on the command line:
+  ```bash
+  $ PORT=<PORT> # (or `set PORT=<PORT>` on Windows)
+  $ npm start
+  ```
+- passing the `--port` CLI option to the `start` command on the command line:
+  ```bash
+  $ npm start -- --port <PORT>
+  ```
   where `<PORT>` is the port number to use.
+- passing the port directly to the `app.listen()` call inside the `src/index.js`
+  file.
 
 **Notes:**
-  - The precedence order of port specification is as follows:
-      - the `port` options to the `serve` command
-      - `process.env.PORT`
-      - the `PORT` value inside the `.env` file.
-  - If no port is specified
-    either via the environment variable (`.env` file or `process.env.PORT`)
-    or via the `port` option during the `serve` command,
-    the application defaults to using port `8800`.
-
+- The precedence order of port specification is as follows:
+    - passing the port directly to `app.listen()`
+    - the `--port` CLI option to the `start:*` command
+    - the `PORT` environment variable on the CLI
+    - the `PORT` value inside the `.env` file.
+    - the default port `8800` if the port isn't specified using any
+      of the other methods.
 
 ## Configuration
 
@@ -268,6 +273,13 @@ router.get("/users", [UserController, "index"]);
 
 module.exports = router;
 ```
+
+##### API Routes
+API routes are defined inside the `src/routes/api.js` file.
+These routes are stateless and have the `/api` prefix automatically applied to them,
+so you do not have to manually apply the prefix to every route inside the file.
+You may use a custom prefix by modifying your application's `src/config/routes.js` file.
+
 
 
 ```js
