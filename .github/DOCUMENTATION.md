@@ -28,7 +28,8 @@
 </details>
 
 ## Introduction
-Simplicity (SimplicityJS) is a framework for building efficient, scalable Node.js applications.
+Simplicity (SimplicityJS) is a simple, easy to learn, framework for building efficient  
+and scalable Node.js applications.
 Whether you are building server-side REST APIs that serve SPA applications on the browser
 or you want to build traditional full-stack applications with backend templating engines,
 Simplicity has you covered.
