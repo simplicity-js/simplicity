@@ -33,15 +33,17 @@ fs.readdirSync(__dirname)
     const sequelize = Connections.get(connectionName, connectionConfig);
     const model = sequelize.define(modelClass.table, modelClass.fields);
 
-    db[modelClass.name] = model;
+    model.sequelize = sequelize;
 
-    model.sync();
+    db[modelClass.name] = model;
   });
 
-// Ensure every model is available
-// before trying to create associations between models.
+/*
+ * Ensure every model is available
+ * before trying to create associations between models.
+ */
 Object.keys(db).forEach((modelName) => {
-  if(db[modelName].associate) {
+  if(typeof db[modelName].associate === "function") {
     db[modelName].associate(db);
   }
 });

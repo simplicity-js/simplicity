@@ -1,0 +1,9 @@
+const path = require("node:path");
+const config = require("./src/config");
+
+module.exports = {
+  env: config.get("app.environment"),
+  "models-path": path.join(__dirname, "src", "app", "http", "models"),
+  "migrations-path": path.join(__dirname, "src", "database", "migrations"),
+  "seeders-path": path.join(__dirname, "src", "database", "seeders"),
+};

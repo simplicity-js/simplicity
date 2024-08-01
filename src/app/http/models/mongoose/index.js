@@ -30,14 +30,15 @@ function createModel(modelName, schema, connection) {
 fs.readdirSync(__dirname)
   .filter(f => f.indexOf(".") !== 0 && f !== basename && f.slice(-3) === ".js")
   .forEach(file => {
-    const modelClass = require(path.join(__dirname, file));
+    const modelFile = path.join(__dirname, file);
+    const modelClass = require(modelFile);
+    const modelSchema = require(modelFile).schema;
     const modelName = modelClass.name;
-    const modelSchema = ""; 
     const model = createModel(modelName, modelSchema, connection);
 
     db[modelClass.name] = model;
-
-    model.sync();
   });
+
+db.connection = connection;
 
 module.exports = db;
