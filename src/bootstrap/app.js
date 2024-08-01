@@ -2,7 +2,7 @@ const path = require("node:path");
 const Application = require("@simplicityjs/framework/application");
 
 module.exports = Application.configure({
-  basePath: path.dirname(__dirname),
+  basePath: path.dirname(path.dirname(__dirname)),
   routing: {
     web: {
       prefix: "/",

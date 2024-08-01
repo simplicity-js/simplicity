@@ -1,6 +1,12 @@
 const path = require("node:path");
 const env = require("@simplicityjs/framework/env");
 
+let sequelizeLoggingOption = false;
+
+if(env("NODE_ENV") === "development" && env("LOG_TO_CONSOLE")) {
+  sequelizeLoggingOption = console.log;
+}
+
 module.exports = {
   /*
    * ---------------------------------
@@ -41,14 +47,14 @@ module.exports = {
       username : env("DB_USERNAME"),
       password : env("DB_PASSWORD"),
       dbName   : env("DB_DBNAME"),
-      logging  : env("LOG_TO_CONSOLE"),
+      logging  : sequelizeLoggingOption,
       dbEngine : "mysql",
     },
 
     sqlite: {
       dbEngine    : "sqlite",
       dbName      : env("DB_DBNAME"),
-      logging     : env("LOG_TO_CONSOLE"),
+      logging     : sequelizeLoggingOption,
       storagePath : path.resolve(
         path.dirname(path.dirname(__dirname)),
         "storage",
