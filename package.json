@@ -45,6 +45,7 @@
   },
   "dependencies": {
     "@simplicityjs/framework": "file:../simplicity-framework",
+    "mongoose": "8.5.2",
     "node-cache": "5.1.2",
     "sequelize": "6.37.3"
   },
