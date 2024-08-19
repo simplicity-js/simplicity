@@ -1,5 +1,5 @@
 # Simplicity
-A Modern MVC Framework for Node.js.
+The Simplest MVC Framework for Node.js.
 
 ## Table of contents
 
@@ -14,7 +14,7 @@ A Modern MVC Framework for Node.js.
 - **[Development](#development)**
     - **[Automated testing](#automated-testing)**
     - **[Committing and pushing changes](#committing-and-pushing-changes)**
-- **[Style-guides](#styleguides)**
+- **[Style-guides](#style-guides)**
     - **[Git Commit Messages](#git-commit-messages)**
 - **[Help needed](#help-needed)**
 
@@ -51,40 +51,39 @@ between projects using different MVC frameworks, ORM/ODMs, and libraries.
 I started Simplicity because I wanted a Node.js framework with a low
 (or zero) learning curve.
 
-Even one knows how frustrating it can be moving between projects that use
+Every one knows how frustrating it can be moving between projects that use
 different frameworks. Not only do you have to learn how the new framework
 works, you also have to learn a new ORM, new routing patterns,
 and get acquainted with new configuration styles.
 
-This leads to a waste of precious time that could have been spent
-building our product.
+Time that could have been spent building our product is spent learning new technologies.
 
-Simplicity reduces (and can completely avoid) this overhead by
-sticking to popular popular, time tested patterns and libraries.
+Simplicity helps to reduce (and even completely avoid) this overhead by
+sticking to popular, time tested patterns and libraries.
 
-With Simplicity, you only have to focus on building your product,
-not learning new routing methods and/or ODMs for every new project you are a part of.
+With Simplicity, you only focus on building your product,
+not learning new routing methods and/or ORM/ODMs.
 
 If you are already using Sequelize or MongoDB as your ORM/ODM of choice,
-you don't have to learn a new ORM/ODM because just because
+you don't have to learn a new ORM/ODM just because
 you're switching to a new framework. Simplicity supports both.
 
 If you're a Node.js developer already familiar with routing in Express.js, you
 don't have to start learning new routing patterns. Simplicity provides only a
-thin wrapper around Express and does not get in the way of your using
-Express ways to do things.
+thin wrapper around Express and does not get in the way of what you already do using
+Express.
 
-Coming from a PHP background and have experience working with
+Are you coming from a PHP background and have experience working with
 simple and idiomatic frameworks like Laravel and you're planning to switch
-to Node.js, you will feel comfortable because Simplicity already uses the same
-patterns as Laravel.
+to Node.js? You will immediately feel comfortable because Simplicity uses similar
+patterns.
 
 As the name implies, Simplicity is meant to be a simple, easy to use framework
 with a near-zero learning curve.
 
-Here's a brief comparison with some popular framework patterns:
+Here's a brief comparison with some popular frameworks and/or patterns:
 
-For example, take a look at this route/controller declaration:
+Take a look at this route/controller declaration:
 ```js
 @Controller('posts')
 export class PostsController {
@@ -157,8 +156,9 @@ The pure express.js version is not only visually harder to reason about,
 but it becomes increasingly more complex as more routes and middleware are added.
 
 **Note:** In place of `router.get('/{userId}', (req, res)`, you can use the
-express-specific `router.get('/:userId', (req, res)`. This is in keeping with
-the spirit of not getting in the way of what you already use in Express.js.
+express-specific `router.get('/:userId', (req, res)`. Simplicity supports both styles
+in keeping with the spirit of not getting in the way of
+what you already use in Express.js.
 
 ## Where can I find out more?
 
