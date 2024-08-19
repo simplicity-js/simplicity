@@ -22,6 +22,12 @@
       </a>
 - <a class="md-links" href="#routing">Routing</a>
     - <a class="md-links" href="#routing-basics">Routing Basics</a>
+        - <a class="md-links" href="#default-view-files">Default View Files</a>
+        - <a class="md-links" href="#redirect-routes">Redirect Routes</a>
+        - <a class="md-links" href="#view-routes">View Routes</a>
+    - <a class="md-links" href="#route-parameters">Route Parameters</a>
+        - <a class="md-links" href="#required-parameters">Required Parameters</a>
+        - <a class="md-links" href="#optional-parameters">Optional Parameters</a>
     - <a class="md-links" href="#resource-controllers">Resource Controllers</a>
 
 </div>
@@ -458,78 +464,6 @@ router.get("/posts/:id([0-9]+)", function(req, res) {
 });
 ```
 
-```js
-const Router = require("@simplicityjs/framework/component/router");
-const UserController = require("../app/http/controllers/user-controller");
-
-const router = Router.router();
-
-router.get("/users", [UserController, "findAll"]);
-router.post("/users", [UserController, "create"]);
-router.get("/users/{id}", "UserController.findAll");
-router.get("/user", "UserController::findAll");
-router.get("/me", { controller: UserController, method: "findAll" });
-
-module.exports = router;
-```
-
-```js
-router.middleware((req, res, next) => {
-  console.log("Middleware called");
-  next();
-}, (router) => {
-  router.get("/first", (req, res) => res.send("first"));
-  router.get("/second", (req, res) => res.send("second"));
-  router.get("/third", (req, res) => res.send("third"));
-});
-```
-
-```js
-router.controller({
-  index: (req, res) => res.send("users list"),
-  new: (req, res) => res.send("new user form"),
-  create: (req, res) => res.send("create user"),
-  show: (req, res) => res.send("show user"),
-  edit: (req, res) => res.send("edit user form"),
-  update: (req, res) => res.send("update user"),
-  destroy: (req, res) => res.send("destroy user"),
-}, (router) => {
-  router.get("/users", "index");
-  router.get("/users/new", "new");
-  router.get("/users/{id}", "show");
-  router.post("/users/", "create");
-  router.get("/users/{id}/edit", "edit");
-  router.put("/users/{id}", "update");
-  router.patch("/users/:id", "update");
-  router.delete("/users/{id}", "destroy");
-});
-```
-
-```js
-router.resource("posts", {
-  index: (req, res) => res.send("index"),
-  new: (req, res) => res.send("new"),
-  create: (req, res) => res.send("create"),
-  show: (req, res) => res.send("show"),
-  edit: (req, res) => res.send("edit"),
-  update: (req, res) => res.send("update"),
-  destroy: (req, res) => res.send("destroy"),
-});
-```
-
-### Resource controllers
-```js
-router.resource("posts", controller); // will produce:
-
-router.get("posts/", controller.index);
-router.get("posts/new", controller.new);
-router.get("posts/:id", controller.show);
-router.post("posts/", controller.create);
-router.get("posts/{id}/edit", controller.edit);
-router.put("posts/:id", controller.update);
-router.patch("posts/:id", controller.update);
-router.delete("posts/:id", controller.destroy);
-```
 
 
 
