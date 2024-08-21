@@ -23,13 +23,13 @@ The Simplest MVC Framework for Node.js.
 ### Install
 
 ```bash
-$ npm install -g @simplicity/cli
+$ npm install -g @simplicityjs/installer
 ```
 
 ### Create a Sample Project
 
 ```bash
-$ simplicity create-project example-app
+$ simplicity new example-app
 ```
 
 ### Run the Sample Project
