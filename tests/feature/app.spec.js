@@ -1,12 +1,10 @@
 "use strict";
 
 const request = require("supertest");
-const Application = require("../../src/bootstrap/app");
+const app = require("../../src/bootstrap/app");
 const { STATUS_CODES, STATUS_TEXTS } = require(
   "@simplicityjs/framework/component/http");
 const { chai } = require("../test-helper");
-
-const app = Application.create();
 
 
 describe("Application", function() {
@@ -16,7 +14,7 @@ describe("Application", function() {
 
   before(async function() {
     expect = (await chai()).expect;
-    app.listen(port);
+    app.runCommand(["serve", `port=${port}`]);
   });
 
   after(function(done) {

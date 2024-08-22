@@ -3,12 +3,15 @@
   "version": "1.0.0",
   "description": "A Modern MVC Framework for Node.js ",
   "main": "src/index.js",
+  "bin": {
+    "bob": "./bin/bob"
+  },
   "scripts": {
     "test": "cross-env NODE_ENV=test LOG_TO_CONSOLE=false mocha tests/\"{,/**/}*.spec.js\"",
     "test:coverage": "nyc npm test",
     "build": "npm install",
-    "start": "node ./bin/start-server",
-    "start:dev": "cross-env NODE_ENV=development nodemon ./bin/start-server",
+    "start": "node bob serve",
+    "start:dev": "cross-env NODE_ENV=development nodemon bob serve",
     "commit": "git-cz",
     "lint": "npx eslint",
     "lint:fix": "npm run lint -- --fix"

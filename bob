@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+
+"use strict";
+
+/*
+ * Support `node bob ...` commands
+ */
+
+require("./bin/bob");

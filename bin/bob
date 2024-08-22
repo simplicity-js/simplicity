@@ -1,0 +1,5 @@
+#!/usr/bin/env node
+
+"use strict";
+
+require("../src/bootstrap/app").runCommand(process.argv.slice(2));

@@ -15,4 +15,4 @@ module.exports = Application.configure({
 
     health: "/up",
   },
-});
+}).create();

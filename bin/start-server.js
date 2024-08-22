@@ -13,7 +13,7 @@ const options = parseArgs({
 });
 
 function startServer() {
-  let command = `node ${rootDir}${path.sep}src${path.sep}index.js`;
+  let command = `node ${rootDir}${path.sep}bin${path.sep}bob serve`;
   const port = options.values.port;
 
   if(port) {
