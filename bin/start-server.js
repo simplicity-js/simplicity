@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
+const cp = require("node:child_process");
 const path = require("node:path");
 const { parseArgs } = require("node:util");
-const exec = require("./exec");
 
 const rootDir = path.dirname(__dirname);
 const options = parseArgs({
@@ -20,7 +20,10 @@ function startServer() {
     command += ` --port ${port}`;
   }
 
-  exec(command).catch((err) => console.error(err));
+  return new Promise((resolve, reject) => {
+    cp.spawn(command, { stdio: "inherit", shell: true })
+      .on("close", (code) => (code === 0) ? resolve(code) : reject(code));
+  });
 }
 
 startServer();
