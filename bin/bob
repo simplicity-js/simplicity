@@ -2,4 +2,7 @@
 
 "use strict";
 
-require("../src/bootstrap/app").runCommand(process.argv.slice(2));
+const path = require("node:path");
+
+require(`${path.dirname(__dirname).replace(/\\/g, "/")}/src/bootstrap/app`)
+  .dispatch(process.argv.slice(2));

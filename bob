@@ -2,8 +2,10 @@
 
 "use strict";
 
+const path = require("node:path");
+
 /*
  * Support `node bob ...` commands
  */
 
-require("./bin/bob");
+require(`${__dirname.replace(/\\/g, "/")}/bin/bob`);

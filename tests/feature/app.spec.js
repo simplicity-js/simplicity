@@ -14,7 +14,7 @@ describe("Application", function() {
 
   before(async function() {
     expect = (await chai()).expect;
-    app.runCommand(["serve", `port=${port}`]);
+    app.dispatch(["start", `--port=${port}`]);
   });
 
   after(function(done) {
