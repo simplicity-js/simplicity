@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: ['ubuntu-latest']
+        environment: ['production']
+        node-version: [18.x, 'latest']
+        redis-version: ['7.x', 'latest']
+        mongodb-version: ['5.0', '6.0']
+
+    steps:
+    - name: Git checkout
+      uses: actions/checkout@v4
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+
+    - name: Start Redis Server ${{ matrix.redis-version }}
+      uses: shogo82148/actions-setup-redis@v1
+      with:
+        redis-version: ${{ matrix.redis-version }}
+
+    - name: Start MongoDB
+      uses: supercharge/mongodb-github-action@1.10.0
+      with:
+        mongodb-version: ${{ matrix.mongodb-version }}
+        mongodb-port: 27017
+
+    - name: 'Create env file'
+      run: |
+          set -m
+          cp .env.example .env
+          cat .env
+
+    - name: Install dependencies
+      run: npm ci
+
+    - name: Check code standards
+      run: npm run lint
+
+    - name: Build
+      run: npm run build --if-present
+
+    - name: Gather coverage report
+      run: npm run test:coverage
+      env:
+         NODE_ENV: ${{ matrix.environment }}
+         REDIS_HOST: '127.0.0.1'
+      #  CI: true
