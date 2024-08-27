@@ -1,17 +1,18 @@
 const env = require("@simplicityjs/framework/env");
-const is = require("@simplicityjs/framework/lib/is");
+const storagePath = require("@simplicityjs/framework/storage-path");
 
 
 module.exports = {
-  logExceptions : is.falsy(env("LOG_UNCAUGHT_EXCEPTIONS")) ? false : true,
-  logRejections : is.falsy(env("LOG_PROMISE_REJECTIONS")) ? false : true,
-  logToConsole  : env("LOG_TO_CONSOLE"),
-  logToFile     : is.falsy(env("LOG_TO_FILE")) ? false : true,
+  logExceptions : env("LOG_UNCAUGHT_EXCEPTIONS", true),
+  logRejections : env("LOG_PROMISE_REJECTIONS", true),
+  logToConsole  : env("LOG_TO_CONSOLE", true),
+  logToFile     : env("LOG_TO_FILE", true),
 
-  // Required if the `logToFile` option is true.
-  // The directory (relative to the root directory)
-  // to place log files if logToFile is enabled.
-  logDir: env("LOG_DIRECTORY", ".logs"),
+  /*
+   * The location to place log files if logToFile is enabled.
+   * Required if the `logToFile` option is true.
+   */
+  logDir: storagePath("app/logs"),
 
 
   /*

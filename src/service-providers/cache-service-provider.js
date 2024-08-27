@@ -10,18 +10,14 @@ module.exports = class CacheServiceProvider extends ServiceProvider {
 
   register() {
     const container = this.container();
-    const config = this.config() ?? container.resolve("config");
+    const config = this.config();
     const cacheConfig = config.get("cache");
     const defaultCache = cacheConfig.default;
     const defaultCacheData = cacheConfig.stores[defaultCache];
     const cacheDriver = defaultCacheData.driver;
-    const cacheParams = {};
+    const cacheParams = defaultCacheData;
 
-    if(defaultCache === "file") {
-      cacheParams.storagePath = defaultCacheData.storagePath;
-    } else if(defaultCache === "memory") {
-      cacheParams.store = defaultCacheData.store;
-    } else if(defaultCache === "redis") {
+    if(defaultCache === "redis") {
       const redisClient = Connections.get("redis", config.get("redis"));
 
       cacheParams.connection = redisClient;

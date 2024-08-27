@@ -1,6 +1,6 @@
-const path = require("node:path");
 const env = require("@simplicityjs/framework/env");
-const NodeCache  = require( "node-cache" );
+const storagePath = require("@simplicityjs/framework/storage-path");
+const NodeCache  = require("node-cache");
 
 module.exports = {
   /*
@@ -24,7 +24,7 @@ module.exports = {
    * there might be other applications using the same cache. For
    * To avoid collisions, you may prefix every cache key.
    */
-  prefix: env("CACHE_KEY_PREFIX", `${env("NAME").toLowerCase().replace(/[\s*,-]+/g, "_")}_cache_`),
+  prefix: env("CACHE_KEY_PREFIX", `${env("APP_NAME").toLowerCase().replace(/[\s*,-]+/g, "_")}_cache_`),
 
   /*
    * Whether to compress the data prior to caching.
@@ -44,11 +44,7 @@ module.exports = {
   stores: {
     file: {
       driver: "file",
-      storagePath: path.resolve(
-        path.dirname(path.dirname(__dirname)),
-        "storage",
-        env("CACHE_STORAGE_PATH", ".cache")
-      ),
+      storagePath: storagePath("framework/cache/data"),
     },
 
     memory: {

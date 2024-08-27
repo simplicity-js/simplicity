@@ -1,16 +1,8 @@
-const FrameworkServiceProvider = require(
+const BaseServiceProvider = require(
   "@simplicityjs/framework/component/service-provider");
 
-module.exports = class ServiceProvider extends FrameworkServiceProvider {
-  #config;
-
-  constructor(config) {
-    super();
-
-    this.#config = config;
-  }
-
-  config() {
-    return this.#config;
+module.exports = class ServiceProvider extends BaseServiceProvider {
+  constructor(options) {
+    super(options);
   }
 };

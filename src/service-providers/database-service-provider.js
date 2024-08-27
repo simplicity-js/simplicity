@@ -9,7 +9,7 @@ module.exports = class DatabaseServiceProvider extends ServiceProvider {
 
   register() {
     const container = this.container();
-    const config = this.config() ?? container.resolve("config");
+    const config = this.config();
     const dbConfig = config.get("database");
     const driver = dbConfig.default;
     const driverConfig = dbConfig.connections[driver];

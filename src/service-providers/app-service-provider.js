@@ -16,8 +16,8 @@ module.exports = class AppServiceProvider extends ServiceProvider {
    * Register the service's dependencies in the dependency container.
    */
   register() {
-    const container = this.container();
     const config = this.config();
+    const container = this.container();
 
     container.bind("config", function configGetter() {
       return config;

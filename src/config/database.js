@@ -1,5 +1,5 @@
-const path = require("node:path");
 const env = require("@simplicityjs/framework/env");
+const storagePath = require("@simplicityjs/framework/storage-path");
 
 let sequelizeLoggingOption = false;
 
@@ -36,7 +36,7 @@ module.exports = {
       port     : env("DB_PORT", 27017),
       username : env("DB_USERNAME"),
       password : env("DB_PASSWORD"),
-      dbName   : env("DB_DBNAME"),
+      dbName   : env("DB_DBNAME", "simplicity_db"),
       exitOnConnectFail: true,
     },
 
@@ -46,20 +46,16 @@ module.exports = {
       port     : env("DB_PORT", 3006),
       username : env("DB_USERNAME"),
       password : env("DB_PASSWORD"),
-      dbName   : env("DB_DBNAME"),
+      dbName   : env("DB_DBNAME", "simplicity_db"),
       logging  : sequelizeLoggingOption,
       dbEngine : "mysql",
     },
 
     sqlite: {
       dbEngine    : "sqlite",
-      dbName      : env("DB_DBNAME"),
+      dbName      : env("DB_DBNAME", "simplicity_db"),
       logging     : sequelizeLoggingOption,
-      storagePath : path.resolve(
-        path.dirname(path.dirname(__dirname)),
-        "storage",
-        env("DB_STORAGE_PATH", ".sqlite")
-      ),
+      storagePath : storagePath("app/database"),
     },
 
     /*

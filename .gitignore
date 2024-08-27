@@ -17,3 +17,6 @@ storage
 .logs
 .log
 .sqlite
+*.logs
+*.cache
+*.sqlite
