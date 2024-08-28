@@ -1,3 +1,7 @@
+const a = __dirname.replace(/\\/g, "/");
+
+require("app-module-path").addPath(a.substring(0, a.lastIndexOf("/")));
+
 const path = require("node:path");
 const Application = require("@simplicityjs/framework/application");
 
