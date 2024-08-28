@@ -1,3 +1,5 @@
+# Simplicity
+
 <details class="toc-container" open>
 
 <summary>
@@ -34,23 +36,19 @@
 </details>
 
 ## Introduction
-Simplicity (SimplicityJS) is a simple, easy to learn, framework for building efficient and scalable Node.js applications.
+Simplicity is a simple, easy to learn, framework that provides an out-of-the-box application architecture
+for building efficient and scalable Node.js applications.
 Whether you are building server-side REST APIs that serve SPA applications on the browser
-or you want to build traditional full-stack applications with backend templating engines,
-Simplicity has you covered.
-
-Underneath, Simplicity makes use of [Express][] the HTTP Server framework,
-providing a thin level of abstraction on top of it while still
-making the Express API fully available to the developer.
-
-Simplicity provides an out-of-the-box application architecture
-that allows developers and teams to create highly testable, scalable,
+or traditional full-stack applications with backend templating engines,
+Simplicity provides tools that enable developers and teams to quickly create highly testable, scalable,
 loosely coupled, and easily maintainable applications.
 
-If you are a developer coming from a PHP/Laravel background
-or you like the Laravel architecture, you will immediately feel comfortable
-working with Simplicity. This is because
-Simplicity's architecture is heavily inspired by Laravel
+Simplicity makes use of [Express][] HTTP Server framework,
+providing a thin layer of abstraction on top of it while still
+making the Express API fully available to the developer.
+
+Developers coming from a PHP/Laravel background will immediately feel comfortable
+working with Simplicity. Simplicity's architecture is heavily inspired by Laravel
 and Simplicity aims to make building applications enjoyable and a breeze.
 
 ## Getting Started
@@ -59,8 +57,7 @@ and Simplicity aims to make building applications enjoyable and a breeze.
 To get started, you can either scaffold the project with the [Simplicity CLI][simplicity-cli]
 or clone the [starter project][starter-project].
 
-To scaffold the project with the Simplicity CLI,
-first install the CLI as a global package with the following command:
+To scaffold the project with the CLI, first install the CLI as a global package:
 ```bash
 $ npm install -g @simplicity/cli
 ```
@@ -71,60 +68,56 @@ $ npm install -g @simplicity/cli
 #### Creating a new project using the Simplicity CLI (Recommended)
 To create a new project using the Simplicity CLI run the following command:
 ```bash
-$ simplicity create-project [example-app]
+$ simplicity create-project [my-example-app]
 ```
 
-This will create a new project directory, set up a conventional base structure for your project,
-and populate the directories with the initial base files required for a minimal app.
+This will create a new project directory, with a conventional base structure setup,
+and populate the directories with the initial files required for a minimal app.
 
 Creating a new project with the CLI is recommended for first-time users.
 
 **NOTE**: To use the current directory as the project directory,
 run the `create-project` command without passing any arguments.
 
-Once the project has been created, start the server in development mode using
+Once the project has been created, you may start the server in development mode as follows:
 ```bash
-$ cd example-app
-
+$ cd my-example-app
 $ npm run start:dev
 ```
 
 <a id="creating-project-by-cloning" name="creating-project-by-cloning"></a>
-#### Alternative: Creating a new project by cloning the starter project
 Alternatively, you can create a new project by cloning the starter project:
 ```bash
-$ git clone https://github.com/simplicity-js/simplicity.git example-app
-$ cd example-app
+$ git clone https://github.com/simplicity-js/simplicity.git my-example-app
+$ cd my-example-app
 $ npm install
-$ copy .env.example .env
+$ cp .env.example .env (on Windows: `copy .env.example .env`)
 $ npm run start:dev
 ```
 
-Once you have started the development server,
+Once you have started the server,
 your application will be accessible in your web browser at http://localhost:8800.
 
 
 ##### Specifying the listen port
 By default, when a Simplicity project starts up, it listens on port number 8800.
-You can, however, specify a different port to listen on.
+You may, however, choose to have your application listen on a different port.
 
 There are several ways you can specify a different port to listen on:
 - setting the value of the `PORT` variable inside the `.env` file
   that was created when the project was scaffolded.
-- setting the `PORT` environment variable on the command line:
+- setting the `PORT` environment variable on the command line prior to starting the server:
   ```bash
   $ PORT=<PORT>  (or `set PORT=<PORT>` on Windows)
-  $ npm start
+  $ node bob start
   ```
 - passing the port number via the `--port` option to the `start` command on the command line:
   ```bash
-  $ npm start -- --port <PORT>
+  $ node bob start --port <PORT>
   ```
-- passing the port directly to `app.listen()` inside the `src/index.js` file.
 
 **Notes:**
 - The precedence order of port specification is as follows:
-    - passing the port directly to `app.listen()`
     - the `--port` CLI option to the `start:*` command
     - the `PORT` environment variable on the CLI
     - the `PORT` value inside the `.env` file.
@@ -136,11 +129,12 @@ There are several ways you can specify a different port to listen on:
 <a id="config-intro" name="config-intro"></a>
 ### Introduction
 All of the configuration files for the Simplicity framework are stored inside the `src/config` directory.
-Look through the files to familiarize yourself with the options available to you.
+It is recommended that you look through the files to familiarize yourself with the options available to you.
 
 These configuration files allow you to configure things
 like your database connection information, cache storage,
-and various other configuration values such as your application timezone.
+and various other configuration values such as your application timezone
+and logging preferences.
 
 You can edit the available configuration files or create new configuration files as your project demands.
 
@@ -148,7 +142,7 @@ You can edit the available configuration files or create new configuration files
 It is often helpful to have different configuration values
 based on the environment where the application is running.
 For example, you may wish to use a sqlite database during development
-while using a MySQL RDBMS in production different or
+while using a MySQL RDBMS in production or
 a different cache driver locally than you do on your production server.
 
 To make this easy for you, Simplicity utilizes the [dotenv][] library.
@@ -157,7 +151,7 @@ the root directory will contain a `.env` file that defines many common environme
 
 If you installed your application by [cloning the starter project][cloning-the-starter-project],
 the root directory will contain a `a .env.example` file instead.
-You have to copy this file manually to a `.env` file using the following command:
+You have to copy this file manually to a `.env` file:
 ```bash
 $ cp .env.example .env
 ```
@@ -167,9 +161,8 @@ may differ based on whether your application is running locally or on a producti
 These values are read by the configuration files within the `config` directory
 using Simplicity's built-in `env` function.
 
-If you are developing with a team,
-it is advisable to continue including and updating the `.env.example` file
-as you build out your application.
+It is advisable to continue including and updating the `.env.example` file
+as you build out your application, especially if you are developing with a team.
 Putting placeholder values in the example configuration file,
 makes it easier for other developers on your team
 to clearly see which environment variables are needed to run your application.
@@ -200,8 +193,7 @@ All of the variables listed in the `.env` file will be loaded
 into the Node process' environment when your application receives a request
 and can be accessed using `process.env.<ENV_NAME>`. However, for convenience,
 Simplicity provides the `env` function to retrieve values from these variables
-in your configuration files.
-If you review the Simplicity configuration files,
+in your configuration files. If you review the Simplicity configuration files,
 you will notice many of the options are already using this function:
 ```js
 {
@@ -210,18 +202,17 @@ you will notice many of the options are already using this function:
 }
 ```
 
-The second value passed to the `env` function is the "default value".
-It is the value that will be returned if no environment variable exists for the given key.
+The second value passed to the `env` function is the "default value",
+the value that will be returned if no environment variable exists for the given key.
 
 ### Accessing Configuration Values
 You may easily access your configuration values using the framework-provided
-`config.get` function from anywhere in your application.
+`config.get` method from anywhere in your application.
 The configuration values may be accessed using "dot" syntax,
-which includes the name of the file and option you wish to access.
-A default value may also be specified
-and will be returned if the configuration option does not exist:
+which includes the name of the file and the option you wish to access.
+A default value may also be specified and will be returned if the configuration option does not exist:
 ```js
-const config = require("./src/config");
+const config = require("config");
 
 let value = config.get("app.timezone");
 
@@ -235,12 +226,11 @@ invoke the `config` object's `set` method:
 config.set("app.timezone", "UTC");
 ```
 
-
 ## Routing
-Routing is the process of writing code to handle incoming HTTP requests.
-A router's task is to define routes and their associated handlers.
-A request handler's task is to respond to incoming HTTP requests.
-In Simplicity, a request handler can be a controller instance or a closure.
+Routing is the process of writing code to handle incoming requests to our application.
+A router's task is to map requests to corresponding request handlers.
+The request handlers then respond to the appropriate HTTP requests as they come in.
+In Simplicity, a request handler can be a controller method or a closure.
 
 ### Routing Basics
 [//]: # ()
@@ -269,13 +259,13 @@ you will begin by defining routes in your `src/routes/web.js` file.
 
 The `src/routes/web.js` file defines routes that are for your web interface.
 These routes automatically have a group of web-related middleware
-applied to them that provides features like session state and CSRF protection.
+applied to them that provides useful features like session state.
 
 To access these routes, simply enter the defined route's URL in your web browser.
 For example, you may access the following route by navigating to
-http://server-hostname/users in your browser:
+http://my-server-hostname/users in your browser:
 ```js
-const UserController = require("../app/http/controllers/user-controller");
+const UserController = require("app/http/controllers/user-controller");
 
 router.get("/users", [UserController, "index"]);
 
@@ -331,18 +321,6 @@ to ensure that the incoming request is matched with the correct route,
 routes using the `get`, `post`, `put`, `patch`, `delete`, and `options` methods
 should be defined before routes using the `any`, `match`, and `redirect` methods.
 
-##### Dependency Injection
-You may pass in any dependencies required by your route in your route's callback signature.
-The declared dependencies will automatically be resolved and injected into the callback by Simplicity's service container.
-For example, you may pass in the model and provider classes to have them automatically injected into your route callback:
-```js
-const User = require("../app/http/models/user");
-
-router.get('/users', function (user) {
-  // ...
-});
-```
-
 #### Redirect Routes
 To define a route that redirects to another URI, use the `router.redirect` method.
 This method provides a convenient shortcut allowing you to perform a redirect
@@ -374,9 +352,9 @@ router.view('/dashboard', 'dashboard');
 router.view('/dashboard', 'dashboard', {'role' => 'Admin'});
 ```
 The view argument can be an absolute path to the view file or
-just the view name (basename) relative to the `src/views` directory.
+just the view name relative to the `src/resources/views` directory.
 
-A template string can also be passed as the second argument, in place of a view file:
+A template string can also be passed as the second argument, in lieu of a view file:
 ```js
 const tpl = `<DOCTYPE html>
 <html>
@@ -415,7 +393,7 @@ router.get('/posts/{post}/comments/:comment', function(req, res) {
 });
 ```
 
-As shown in the examples, route parameters can be accessed by name
+Route parameters can be accessed by name
 via the `params` property of the `req` object passed to the defined request handler.
 The order of the route parameters do not matter:
 ```js
@@ -425,9 +403,9 @@ router.get('/user/{id}', function(req, res) {
 ```
 
 ##### Accessing Dependencies within Route Handlers
-Simplicity makes use of [Awilix][], a powerful Dependency Injection (DI) container
+Simplicity uses [Awilix][], a powerful Dependency Injection (DI) container
 for managing dependencies. You can access the DI container from within route handlers
-via the `req.app` object. This object provides the `resolve` method for resolve dependencies.
+via the `req.app` object. This object provides the `resolve` method for resolving dependencies.
 For example, here's how to get a reference to an instance of the `Post` model
 from a route callback or a controller method:
 ```js
@@ -442,7 +420,7 @@ router.get('/post/:id', function(req, res) {
 
 #### Optional Parameters
 To specify that a route parameter is optional and may not always be present in the URI,
-placing a question mark (?) after the parameter name:
+place a question mark (?) after the parameter name:
 
 ```js
 router.get('/user/:name?', function(req, res) {
@@ -452,7 +430,7 @@ router.get('/user/:name?', function(req, res) {
 
 #### Constraining Route Parameters Specific Types
 To constrain the format of your route parameters,
-append a regular expression in parentheses (()):
+append a regular expression in parentheses (`()`):
 
 ```js
 router.get('/users/{id}(\\d+)/:name([A-Za-z]+)', function(req, res) {
