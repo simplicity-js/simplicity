@@ -1,6 +1,8 @@
 # Simplicity
 The flexible, ORM-agnostic MVC Framework for Node.js.
 
+Simplicity brings the artistry and elegance of Laravel to Node.js.
+
 ## Table of contents
 
 - **[Getting Started](#getting-started)**
@@ -44,10 +46,10 @@ Your application is now accessible at http://localhost:8800.
 
 ## Motivation
 
-Simplicity was created to be simple to understand use as possible.
+Simplicity was created to be as simple to understand and use as possible.
 
-Think of the times as a developer when you have moved between projects
-using different frameworks. Not only do you have to learn how the new framework
+Think of the various times as a developer when you have had to move between projects
+that were built using different frameworks. Not only do you have to learn how the new framework
 works, you also have to learn a new ORM, new routing patterns,
 and get acquainted with new configuration styles.
 
@@ -55,19 +57,19 @@ Time that could have been spent building our product is spent learning new techn
 And this cycle is repeated every time we move to a different project that uses a different framework.
 
 Simplicity aims to reduce (and even completely avoid) this overhead by
-sticking to popular, time tested patterns and libraries.
+sticking to popular, time tested patterns and structures.
 
 The philosophy behind Simplicity is simple. Focus on building your product,
-not on learning new routing patterns and/or ORMs.
+not on learning new routing patterns, ORMs, or ways of doing things.
 
-If you are already using Sequelize or MongoDB as your ORM of choice,
-switching to a new framework should not mean you have to learn a new ORM because.
-That's what Simplicity is about. Simplicity supports both.
+If you are already using MongoDB or Sequelize as your ORM of choice,
+switching to Simplicity means you don't have to start learning a new ORM,
+unless, of course, you want to. You can keep using your current ORM.
 
 As a Node.js developer familiar with routing in Express.js, you
-don't have to start learning new routing patterns. Simplicity provides only a
-thin wrapper around Express and does not get in the way of what you are already doing
-with Express.
+can keep using your preferred routing patterns. Simplicity provides only a
+thin layer of convenience on top of Express
+and does not get in the way of what you are already doing with Express.
 
 Similarly, if you are coming from a PHP background and have experience working with
 frameworks like Laravel, you will immediately feel comfortable
