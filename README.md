@@ -1,13 +1,13 @@
 # Simplicity
-The Simplest MVC Framework for Node.js.
+The flexible, ORM-agnostic MVC Framework for Node.js.
 
 ## Table of contents
 
 - **[Getting Started](#getting-started)**
-    - **[Install](#install)**
-    - **[Create a Sample Project](#create-a-sample-project)**
-    - **[Run the Sample Project](#run-the-sample-project)**
-- **[Why Simplicity?](#why-simplicity)**
+    - **[Installation](#installation)**
+    - **[Creating a Sample Project](#creating-a-sample-project)**
+    - **[Running the Sample Project](#running-the-sample-project)**
+- **[Motivation](#motivation)**
 - **[Where can I find out more?](#where-can-i-find-out-more)**
 - **[How Can I Contribute?](#how-can-i-contribute)**
 - **[Project setup](#project-setup)**
@@ -20,19 +20,19 @@ The Simplest MVC Framework for Node.js.
 
 ## Getting Started
 
-### Install
+### Installation
 
 ```bash
 $ npm install -g @simplicityjs/installer
 ```
 
-### Create a Sample Project
+### Creating a Sample Project
 
 ```bash
 $ simplicity new example-app
 ```
 
-### Run the Sample Project
+### Running the Sample Project
 
 ```bash
 $ cd example-app
@@ -42,46 +42,45 @@ $ npm run start:dev
 
 Your application is now ready and accessible at http://localhost:8800.
 
-## Why Simplicity?
+## Motivation
 
-Simplicity was created primarily to be simple to understand and easy to use.
-It is also meant to remove the overhead associated with moving
-between projects using different MVC frameworks, ORM/ODMs, and libraries.
+Simplicity was created to be simple to understand use as possible.
+[//]: # It is also meant to remove the overhead associated with moving
+[//]: # between projects using different MVC frameworks, ORM/ODMs, and libraries.
 
-I started Simplicity because I wanted a Node.js framework with a low
-(or zero) learning curve.
+[//]: # I started Simplicity because I wanted a Node.js framework with a low (near-zero) learning curve.
 
-Every one knows how frustrating it can be moving between projects that use
-different frameworks. Not only do you have to learn how the new framework
+Think of the times as a developer when you have moved between projects
+using different frameworks. Not only do you have to learn how the new framework
 works, you also have to learn a new ORM, new routing patterns,
 and get acquainted with new configuration styles.
 
 Time that could have been spent building our product is spent learning new technologies.
+And this cycle is repeated every time we move to a different project that uses a different framework.
 
-Simplicity helps to reduce (and even completely avoid) this overhead by
+Simplicity aims to reduce (and even completely avoid) this overhead by
 sticking to popular, time tested patterns and libraries.
 
-With Simplicity, you only focus on building your product,
-not learning new routing methods and/or ORM/ODMs.
+The philosophy behind Simplicity is simple. Focus on building your product,
+not on learning new routing patterns and/or ORMs.
 
-If you are already using Sequelize or MongoDB as your ORM/ODM of choice,
-you don't have to learn a new ORM/ODM just because
-you're switching to a new framework. Simplicity supports both.
+If you are already using Sequelize or MongoDB as your ORM of choice,
+switching to a new framework should not mean you have to learn a new ORM because.
+That's what Simplicity is about. Simplicity supports both.
 
-If you're a Node.js developer already familiar with routing in Express.js, you
+As a Node.js developer familiar with routing in Express.js, you
 don't have to start learning new routing patterns. Simplicity provides only a
-thin wrapper around Express and does not get in the way of what you already do using
-Express.
+thin wrapper around Express and does not get in the way of what you are already doing
+with Express.
 
-Are you coming from a PHP background and have experience working with
-simple and idiomatic frameworks like Laravel and you're planning to switch
-to Node.js? You will immediately feel comfortable because Simplicity uses similar
-patterns.
+Similarly, if you are coming from a PHP background and have experience working with
+frameworks like Laravel, you will immediately feel comfortable
+because Simplicity uses similar patterns.
 
-As the name implies, Simplicity is meant to be a simple, easy to use framework
-with a near-zero learning curve.
+As the name implies, Simplicity is meant to be a simple, flexible,
+easy to use framework with a near-zero learning curve.
 
-Here's a brief comparison with some popular frameworks and/or patterns:
+Here's a brief comparison with a few popular framework patterns:
 
 Take a look at this route/controller declaration:
 ```js
@@ -94,29 +93,32 @@ export class PostsController {
 }
 ```
 
-If you're seeing this code for the first time,
-to understand what `@Controller('posts')` does, you have to
-read the documentation to know what it represents.
-The same goes for the `@Get()` annotation.
+If you're seeing this code for the first time, especially if you're a beginner,
+chances are that you'd probably be wondering whether the `@Controller('posts')`
+annotation specifies that the class is a controller
+or if it handles `posts`-related routes.
+You have to first dig through the documentation to know what it represents.
+The same thing can be said for the `@Get()` annotation.
 
-Contrast that with the below code that does something similar:
+Contrast that with the below code in Simplicity that does something similar:
 ```js
-router.group("posts", (router) => {
+router.group("posts", (router) =>
   router.get("/", [PostsController, "findAll"]);
-});
+);
 
 module.exports = router;
 ```
-This code is arguably simpler, more idiomatic,
-adheres to the principle of separation of concerns,
-reads like plain English, and less mentally tasking to grasp. Moreover,
-the function each part is playing is clearly visible from the code.
+This code is arguably simpler and more idiomatic.
+It adheres to the principle of separation of concerns,
+reads like plain English language, and is less mentally tasking to grasp.
+Moreover, the function each part of the code is playing
+is clearly visible at first glance.
 
 Whether you're coming from a Laravel or an Express background,
 this code will be immediately familiar. You don't even have to read
 the documentation to understand what it's doing. Yes, it is that simple!
 
-Again, consider this snippet of code when working with Express.js:
+Again, consider this snippet of code when working with pure Express.js:
 ```js
 const express = require('express');
 
@@ -135,7 +137,7 @@ apiRouter.use('/v1', v1Router);
 app.use('/api', apiRouter);
 ```
 
-Consider the equivalent code in Simplicity:
+Now take a look at the Simplicity equivalent:
 ```js
 const Router = require("@simplicityjs/framework/router");
 
@@ -157,8 +159,7 @@ but it becomes increasingly more complex as more routes and middleware are added
 
 **Note:** In place of `router.get('/{userId}', (req, res)`, you can use the
 express-specific `router.get('/:userId', (req, res)`. Simplicity supports both styles
-in keeping with the spirit of not getting in the way of
-what you already use in Express.js.
+in keeping with the spirit of not getting in the way of what you already use in Express.js.
 
 ## Where can I find out more?
 
@@ -167,14 +168,14 @@ Check out the [documentation][].
 
 If you think this sounds promising and you'd want to be a part of it,
 you are welcome. Simplicity is still in its early stages and there's still a lot
-to be done, features to be built, documentation to write, etc.
+of work to be done, features to be built, documentation to write, etc.
 
 Whether you want to contribute or you are just curious
 and just want to check out the code, you can find the [source code here][source-code].
 
 Finally, if you find any issues or would like to make a feature request,
 just create a new [issue here][issues] or pick up an existing issue
-and help resolve it. Every kind of contribution is welcomed.
+and help resolve it. Every kind of contribution is welcome.
 
 ## How Can I Contribute?
 
@@ -226,7 +227,10 @@ To make pull requests:
 
 ### Automated testing
 
-Tests are located inside the `tests` directory.
+Tests are mostly co-located with the code they test. However,
+you can place tests for a module in a dedicated `tests` directory
+within that module. Simplicity scans the entire directory to find
+files with the `.spec.js` extension.
 
 - To run the tests, simply run `npm test`.
 - To run tests with coverage reporting, run `npm run test:coverage`.
@@ -240,7 +244,7 @@ they are highlighted, so that you can manually fix them.
 
 To commit your changes, run `npm run commit`. This will:
 
-- generate conventional commit messages using [commitizen][commitizen] and [cz-conventional-changelog][changelog]
+- help generate conventional commit messages using [commitizen][commitizen] and [cz-conventional-changelog][changelog]
 - check to make sure there are no linting errors
 - run the tests to make sure the changes do not break existing functionality
 - check that the minimum code-coverage threshold is attained
