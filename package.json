@@ -1,11 +1,7 @@
 {
   "name": "@simplicityjs/simplicity",
   "version": "1.0.0",
-  "description": "The Simplest MVC Framework for Node.js ",
-  "main": "./bin/bob",
-  "bin": {
-    "bob": "./bin/bob"
-  },
+  "description": "The Simplest MVC Framework for Node.js",
   "scripts": {
     "test": "cross-env NODE_ENV=test LOG_TO_CONSOLE=false mocha tests/\"{,/**/}*.spec.js\"",
     "test:coverage": "nyc npm test",

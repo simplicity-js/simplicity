@@ -2,8 +2,8 @@
  * Specify your service providers in this file.
  */
 
-const AppServiceProvider = require("../service-providers/app-service-provider");
-const CacheServiceProvider = require("../service-providers/cache-service-provider");
+const AppServiceProvider = require("service-providers/app-service-provider");
+const CacheServiceProvider = require("service-providers/cache-service-provider");
 
 
 /*

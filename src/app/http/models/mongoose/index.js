@@ -4,13 +4,11 @@ const fs = require("node:fs");
 const path = require("node:path");
 const mongoose = require("mongoose");
 const Connections = require("@simplicityjs/framework/connections");
-const config = require("../../../../config");
+const config = require("config");
 
 const db = {};
 const basename = path.basename(__filename);
-const connectionName = config.get("database.mongoose");
-const connectionConfig = config.get("database.connections")[connectionName];
-const connection = Connections.get(connectionName, connectionConfig);
+
 
 function createModel(modelName, schema, connection) {
   if(mongoose.models[modelName]) {
@@ -27,9 +25,15 @@ function createModel(modelName, schema, connection) {
   );
 }
 
-fs.readdirSync(__dirname)
-  .filter(f => f.indexOf(".") !== 0 && f !== basename && f.slice(-3) === ".js")
-  .forEach(file => {
+const modelFiles = fs.readdirSync(__dirname)
+  .filter(f => f.indexOf(".") !== 0 && f !== basename && f.slice(-3) === ".js");
+
+if(modelFiles.length > 0) {
+  const connectionName = "mongodb";
+  const connectionConfig = config.get("database.connections")[connectionName];
+  const connection = Connections.get(connectionName, connectionConfig);
+
+  modelFiles.forEach(file => {
     const modelFile = path.join(__dirname, file);
     const modelClass = require(modelFile);
     const modelSchema = require(modelFile).schema;
@@ -39,6 +43,7 @@ fs.readdirSync(__dirname)
     db[modelClass.name] = model;
   });
 
-db.connection = connection;
+  db.connection = connection;
+}
 
 module.exports = db;

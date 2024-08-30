@@ -3,7 +3,7 @@
 const fs = require("node:fs");
 const path = require("node:path");
 const Connections = require("@simplicityjs/framework/connections");
-const config = require("../../../../config");
+const config = require("config");
 
 const db = {};
 const basename = path.basename(__filename);

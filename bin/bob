@@ -5,4 +5,6 @@
 const path = require("node:path");
 
 require(`${path.dirname(__dirname).replace(/\\/g, "/")}/src/bootstrap/app`)
-  .dispatch(process.argv.slice(2));
+  .dispatch(process.argv.slice(2))
+  .then((status) => status !== undefined && process.exit(status))
+  .catch((err) => process.exit(err.code));
