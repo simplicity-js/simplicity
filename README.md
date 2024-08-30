@@ -37,18 +37,14 @@ $ simplicity new example-app
 ```bash
 $ cd example-app
 
-$ npm run start:dev
+$ npm run start:dev (or in production `node bob start`)
 ```
 
-Your application is now ready and accessible at http://localhost:8800.
+Your application is now accessible at http://localhost:8800.
 
 ## Motivation
 
 Simplicity was created to be simple to understand use as possible.
-[//]: # It is also meant to remove the overhead associated with moving
-[//]: # between projects using different MVC frameworks, ORM/ODMs, and libraries.
-
-[//]: # I started Simplicity because I wanted a Node.js framework with a low (near-zero) learning curve.
 
 Think of the times as a developer when you have moved between projects
 using different frameworks. Not only do you have to learn how the new framework
