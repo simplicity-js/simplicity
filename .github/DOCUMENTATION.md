@@ -82,7 +82,7 @@ run the `create-project` command without passing any arguments.
 Once the project has been created, you may start the server in development mode as follows:
 ```bash
 $ cd my-example-app
-$ npm run start:dev
+$ node bob start
 ```
 
 <a id="creating-project-by-cloning" name="creating-project-by-cloning"></a>
@@ -92,7 +92,7 @@ $ git clone https://github.com/simplicity-js/simplicity.git my-example-app
 $ cd my-example-app
 $ npm install
 $ cp .env.example .env (on Windows: `copy .env.example .env`)
-$ npm run start:dev
+$ node bob start
 ```
 
 Once you have started the server,

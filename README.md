@@ -39,7 +39,7 @@ $ simplicity new example-app
 ```bash
 $ cd example-app
 
-$ npm run start:dev (or in production `node bob start`)
+$ node bob start
 ```
 
 Your application is now accessible at http://localhost:8800.
