@@ -48,39 +48,39 @@ Your application is now accessible at http://localhost:8800.
 ## Features
 Here are some of the features that make Simplicity a developer favorite.
 
-* :sparkles: Modularity
-* :sparkles: Scalability
-* :sparkles: Expressive Syntax
-* :sparkles: MVC Architecture
-* :sparkles: Conventional Directory Structure
-* :sparkles: ORM Agnostic
-* :sparkles: Multiple Database Support
-* :sparkles: Multiple View Template Engines Support
-* :sparkles: Database Migrations
-* :sparkles: Unit Testing
-* :sparkles: Maintenance Mode
-* :sparkles: Request Caching
-* :sparkles: Logging
-* :sparkles: Web and API Routes
-* :sparkles: Health Check Route
-* :sparkles: Session support
-* :sparkles: Customizable 404, 503, and Health Check Views
-* :sparkles: Advanced Router Methods
+* Modularity
+* Scalability
+* Expressive Syntax
+* MVC Architecture
+* Conventional Directory Structure
+* ORM Agnostic
+* Multiple Database Support
+* Multiple View Template Engines Support
+* Database Migrations
+* Unit Testing
+* Maintenance Mode
+* Request Caching
+* Logging
+* Web and API Routes
+* Health Check Route
+* Session support
+* Customizable 404, 503, and Health Check Views
+* Advanced Router Methods
   `controller`, `middleware`, `resource` `match` (`some`), `any` (`all`), `redirect`, `permanentRedirect`, `view`
-* :sparkles: Closure and Controller-based Route Handlers
-* :sparkles: RESTful Controllers
-* :sparkles: Dynamic Configuration Management
-* :sparkles: Dependency Management with [Awilix][] DI Container
-* :sparkles: Controller, Model, and Service Class Bindings
-* :sparkles: Multiple Options for Port Configuration
-* :sparkles: Environment-based Configuration with `.env` file
-* :sparkles: Bob CLI
-* :sparkles: CSRF Protection <sup>soon</sup>
-* :sparkles: Validation <sup>soon</sup>
-* :sparkles: Authentication <sup>soon</sup>
-* :sparkles: Notifications <sup>soon</sup>
-* :sparkles: Async Tasks and Queues <sup>soon</sup>
-* :sparkles: Custom Console Commands <sup>soon</sup>
+* Closure and Controller-based Route Handlers
+* RESTful Controllers
+* Dynamic Configuration Management
+* Dependency Management with [Awilix][] DI Container
+* Controller, Model, and Service Class Bindings
+* Multiple Options for Port Configuration
+* Environment-based Configuration with `.env` file
+* Bob CLI
+* CSRF Protection <sup>soon</sup>
+* Validation <sup>soon</sup>
+* Authentication <sup>soon</sup>
+* Notifications <sup>soon</sup>
+* Async Tasks and Queues <sup>soon</sup>
+* Custom Console Commands <sup>soon</sup>
 
 ## Motivation
 
