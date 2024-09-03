@@ -9,6 +9,7 @@ Simplicity brings the artistry and elegance of Laravel to Node.js.
     - **[Installation](#installation)**
     - **[Creating a Sample Project](#creating-a-sample-project)**
     - **[Running the Sample Project](#running-the-sample-project)**
+- **[Features](#features)**
 - **[Motivation](#motivation)**
 - **[Where can I find out more?](#where-can-i-find-out-more)**
 - **[How Can I Contribute?](#how-can-i-contribute)**
@@ -43,6 +44,43 @@ $ node bob start
 ```
 
 Your application is now accessible at http://localhost:8800.
+
+## Features
+Here are some of the features that make Simplicity a developer favorite.
+
+* :sparkles: Modularity
+* :sparkles: Scalability
+* :sparkles: Expressive Syntax
+* :sparkles: MVC Architecture
+* :sparkles: Conventional Directory Structure
+* :sparkles: ORM Agnostic
+* :sparkles: Multiple Database Support
+* :sparkles: Multiple View Template Engines Support
+* :sparkles: Database Migrations
+* :sparkles: Unit Testing
+* :sparkles: Maintenance Mode
+* :sparkles: Request Caching
+* :sparkles: Logging
+* :sparkles: Web and API Routes
+* :sparkles: Health Check Route
+* :sparkles: Session support
+* :sparkles: Customizable 404, 503, and Health Check Views
+* :sparkles: Advanced Router Methods
+  `controller`, `middleware`, `resource` `match` (`some`), `any` (`all`), `redirect`, `permanentRedirect`, `view`
+* :sparkles: Closure and Controller-based Route Handlers
+* :sparkles: RESTful Controllers
+* :sparkles: Dynamic Configuration Management
+* :sparkles: Dependency Management with [Awilix][] DI Container
+* :sparkles: Controller, Model, and Service Class Bindings
+* :sparkles: Multiple Options for Port Configuration
+* :sparkles: Environment-based Configuration with `.env` file
+* :sparkles: Bob CLI
+* :sparkles: CSRF Protection <sup>soon</sup>
+* :sparkles: Validation <sup>soon</sup>
+* :sparkles: Authentication <sup>soon</sup>
+* :sparkles: Notifications <sup>soon</sup>
+* :sparkles: Async Tasks and Queues <sup>soon</sup>
+* :sparkles: Custom Console Commands <sup>soon</sup>
 
 ## Motivation
 
@@ -93,9 +131,8 @@ export class PostsController {
 
 If you're seeing this code for the first time, especially if you're a beginner,
 chances are that you'd probably be wondering whether the `@Controller('posts')`
-annotation specifies that the class is a controller
-or if it handles `posts`-related routes.
-You have to first dig through the documentation to know what it represents.
+annotation specifies that the class is a Controller or if it handles `posts`-related routes.
+To be certain, you have to dig through the documentation.
 The same thing can be said for the `@Get()` annotation.
 
 Contrast that with the below code in Simplicity that does something similar:
@@ -106,11 +143,10 @@ router.group("posts", (router) =>
 
 module.exports = router;
 ```
-This code is arguably simpler and more idiomatic.
+This code is arguably simpler to follow and is more idiomatic.
 It adheres to the principle of separation of concerns,
-reads like plain English language, and is less mentally tasking to grasp.
-Moreover, the function each part of the code is playing
-is clearly visible at first glance.
+reads like natural language, and is less mentally tasking to grasp.
+The function each part of the code is playing is clearly visible at first glance.
 
 Whether you're coming from a Laravel or an Express background,
 this code will be immediately familiar. You don't even have to read
@@ -306,6 +342,7 @@ Also, please watch the repo and respond to questions/[bug reports][bug]/[feature
 
 
 
+[awilix]: https://npm.im/awilix
 [bug]: https://github.com/simplicity-js/simplicity/labels/bug
 [changelog]: https://npm.im/cz-conventional-changelog
 [commitizen]: https://npm.im/commitizen
