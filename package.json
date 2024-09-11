@@ -8,7 +8,8 @@
     "build": "npm install",
     "commit": "git-cz",
     "lint": "npx eslint",
-    "lint:fix": "npm run lint -- --fix"
+    "lint:fix": "npm run lint -- --fix",
+    "dev": "cross-env NODE_ENV=development node bob start"
   },
   "repository": {
     "type": "git",
@@ -41,7 +42,7 @@
     "npm": ">=9.8.1"
   },
   "dependencies": {
-    "@simplicityjs/framework": "1.0.1",
+    "@simplicityjs/framework": "1.1.0",
     "app-module-path": "2.2.0",
     "mongoose": "8.5.2",
     "node-cache": "5.1.2",
