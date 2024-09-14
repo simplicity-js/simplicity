@@ -1,3 +1,5 @@
+"use strict";
+
 const env = require("@simplicityjs/framework/env");
 const resourcePath = require("@simplicityjs/framework/resource-path");
 

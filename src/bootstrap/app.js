@@ -1,3 +1,5 @@
+"use strict";
+
 const a = __dirname.replace(/\\/g, "/");
 
 require("app-module-path").addPath(a.substring(0, a.lastIndexOf("/")));

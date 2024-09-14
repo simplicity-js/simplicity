@@ -1,3 +1,5 @@
+"use strict";
+
 const env = require("@simplicityjs/framework/env");
 const storagePath = require("@simplicityjs/framework/storage-path");
 const NodeCache  = require("node-cache");

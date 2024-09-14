@@ -1,3 +1,5 @@
+"use strict";
+
 /*
  * Specify your service providers in this file.
  */
