@@ -30,6 +30,16 @@
     - <a class="md-links" href="#route-parameters">Route Parameters</a>
         - <a class="md-links" href="#required-parameters">Required Parameters</a>
         - <a class="md-links" href="#optional-parameters">Optional Parameters</a>
+
+    - <a class="md-links" href="#named-routes">Named Routes</a>
+        - <a class="md-links" href="#generating-urls-to-named-routes">
+          Generating URLs to Named Routes
+          </a>
+    - <a class="md-links" href="#route-groups">Route Groups</a>
+        - <a class="md-links" href="#middleware">Middleware</a>
+        - <a class="md-links" href="#controllers">Controllers</a>
+        - <a class="md-links" href="#route-prefixes">Route Prefixes</a>
+        - <a class="md-links" href="#route-namespaces">Route Namespaces</a>
     - <a class="md-links" href="#resource-controllers">Resource Controllers</a>
 
 </div>
@@ -259,7 +269,7 @@ you will begin by defining routes in your `src/routes/web.js` file.
 
 The `src/routes/web.js` file defines routes that are for your web interface.
 These routes automatically have a group of web-related middleware
-applied to them that provides useful features like session state.
+applied to them that provides useful features like session state and CSRF protection.
 
 To access these routes, simply enter the defined route's URL in your web browser.
 For example, you may access the following route by navigating to
@@ -428,7 +438,7 @@ router.get('/user/:name?', function(req, res) {
 });
 ```
 
-#### Constraining Route Parameters Specific Types
+#### Constraining Route Parameters To Specific Types
 To constrain the format of your route parameters,
 append a regular expression in parentheses (`()`):
 
@@ -440,7 +450,123 @@ router.get('/users/{id}(\\d+)/:name([A-Za-z]+)', function(req, res) {
 router.get("/posts/:id([0-9]+)", function(req, res) {
   // ...
 });
+
+router.get("/movies/category/{category}(fiction|scifi)", function(req, res) {
+  // ...
+});
 ```
+
+#### Named Routes
+Named routes allow the convenient generation of URLs or redirects for specific routes.
+You may specify a name for a route by using the router.name method which has the  
+following signature: `router.name(name, method, uri, handler)`
+
+```js
+router.name("getUser", "get", "/users/{userId}", function(req, res) {
+  // ...
+});
+```
+
+##### Generating URLs to Named Routes
+Once you have assigned a name to a given route, you may generate URLs or redirects
+to the route using the route's name via Simplicity's router.url method:
+
+```js
+const url = router.url("getUser", { userId: 1 });
+```
+
+Named routes can also belong to a namespaced route:
+
+```js
+router.namespace("user.", "/users/:userId", function(router) {
+  router.name("getFriend", "get", "/friends/{friendId}", function(req, res) {
+    // ...
+  });
+});
+```
+
+You will then generate the URL to this route as follows:
+
+```js
+const url = router.url("user.getFriend", { userId: 1, friendId: 2 });
+```
+
+`router.url` creates and returns a url for the route definition with the given name.
+If that route contains params, as in our examples,
+you can pass in values to fill in the params in the optional params object.
+Any extra fields found in the params object but not found in the route definition
+will be considered query params, and will be appended to the url as a query string:
+
+```js
+const url = router.url("user.getFriend", { userId: 1, friendId: 2, foo: "bar" });
+
+//  Generated url:  /users/1/friends/2?foo=bar
+```
+
+#### Route Groups
+Route groups allow us to share route attributes, such as middleware,
+across a large number of routes without having to define those attributes
+on each individual route.
+
+##### Middleware
+To assign middleware to all routes within a group,
+use the `middleware` method of the router.
+The assigned middleware are executed in the order they are listed in the array:
+
+```js
+router.middleware([log, cache], function(router) {
+  router.get('/', function(req, res, next) {
+    // Uses log & cache middleware...
+  });
+
+  router.get('/users/{userId}', function(req, res, next) {
+    // Uses log & cache middleware...
+  });
+});
+```
+
+##### Controllers
+If a group of routes all utilize the same controller,
+you may use the `controller` method to define the common controller
+for all of the routes within the group. Then, when defining the routes,
+you only need to provide the controller method that they invoke:
+```js
+const UserController = require("app/http/controllers/user-controller");
+
+router.controller(UserController, function(router) {
+  router.get('/users/:id', 'show');
+  router.post('/users', 'create');
+  // ...
+});
+```
+
+##### Route Prefixes
+The `prefix` method may be used to prefix each route in the group with a given URI.
+For example, you may want to prefix all route URIs within the group with `shop`:
+
+```js
+router.prefix('admin', function (router) {
+  route.get('/users', function(req, res, next) {
+    // Matches The "/admin/users" URL
+  });
+});
+```
+
+##### Route Namespaces
+The `namespace` method may be used to prefix each route name in the group with a given string.
+For example, you may want to prefix the names of all of the routes in the group with `admin`.
+The given string is prefixed to the route name exactly as it is specified,
+so we will be sure to provide the trailing `.` character in the prefix:
+
+```js
+router.namespace('admin.', '/admin', function () {
+  router.name('users', 'get', '/users', function () {
+    // Route assigned name "admin.users" ...
+    // and path /admin/users
+  });
+});
+```
+
 
 
 
