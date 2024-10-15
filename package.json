@@ -42,7 +42,7 @@
     "npm": ">=9.8.1"
   },
   "dependencies": {
-    "@simplicityjs/framework": "1.1.0",
+    "@simplicityjs/framework": "1.2.0",
     "app-module-path": "2.2.0",
     "mongoose": "8.5.2",
     "node-cache": "5.1.2",
