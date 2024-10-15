@@ -48,8 +48,8 @@ Your application is now accessible at http://localhost:8800.
 ## Features
 Here are some of the features that make Simplicity a developer favorite.
 
-* Modularity
-* Scalability
+* Modular
+* Scalable
 * Expressive Syntax
 * MVC Architecture
 * Conventional Directory Structure
@@ -66,7 +66,8 @@ Here are some of the features that make Simplicity a developer favorite.
 * Session support
 * Customizable 404, 503, and Health Check Views
 * Advanced Router Methods
-  `controller`, `middleware`, `resource` `match` (`some`), `any` (`all`), `redirect`, `permanentRedirect`, `view`
+  `any` (`all`), `controller`, `match` (`some`), `middleware`, `name`, `namespace`,
+  `permanentRedirect`, `redirect`, `resource`, `view`
 * Closure and Controller-based Route Handlers
 * RESTful Controllers
 * Dynamic Configuration Management
@@ -75,8 +76,8 @@ Here are some of the features that make Simplicity a developer favorite.
 * Multiple Options for Port Configuration
 * Environment-based Configuration with `.env` file
 * Bob CLI
-* CSRF Protection <sup>soon</sup>
-* Validation <sup>soon</sup>
+* CSRF Protection
+* Validation
 * Authentication <sup>soon</sup>
 * Notifications <sup>soon</sup>
 * Async Tasks and Queues <sup>soon</sup>
