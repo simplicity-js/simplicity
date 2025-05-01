@@ -39,7 +39,7 @@ module.exports = {
       username : env("DB_USERNAME"),
       password : env("DB_PASSWORD"),
       dbName   : env("DB_DBNAME", "simplicity_db"),
-      exitOnConnectFail: true,
+      exitOnConnectionFailure: env("DB_EXIT_ON_CONNECT_FAIL", false),
     },
 
     mysql: {
@@ -51,6 +51,7 @@ module.exports = {
       dbName   : env("DB_DBNAME", "simplicity_db"),
       logging  : sequelizeLoggingOption,
       dbEngine : "mysql",
+      exitOnConnectionFailure: env("DB_EXIT_ON_CONNECT_FAIL", false),
     },
 
     sqlite: {

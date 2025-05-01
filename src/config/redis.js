@@ -9,5 +9,7 @@ module.exports = {
   username    : env("REDIS_USERNAME", "default"),
   password    : env("REDIS_PASSWORD"),
   db          : env("REDIS_DATABASE", "0"),
-  autoConnect : true,
+  legacyMode  : env("REDIS_LEGACY_MODE", false),
+  autoConnect : env("REDIS_AUTO_CONNECT", false),
+  exitOnConnectionFailure: env("REDIS_EXIT_ON_CONNECT_FAIL", false),
 };
